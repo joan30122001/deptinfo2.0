@@ -1,0 +1,517 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block stylepage %}
+<style>
+	.formation-box {
+		cursor: pointer;
+	}
+
+	.formation-box:hover {
+		background-size: cover;
+		background-image: linear-gradient(to bottom, rgba(222, 58, 153, 0.7), rgba(106, 78, 119, 0.7)),
+		url("{% static 'barbillard/images/cycle/licence.jpg' %}");
+	}
+
+	.formation-box:hover h4,
+	.formation-box:hover p,
+	.formation-box:hover .feature-icon {
+		color: white;
+	}
+</style>
+{% endblock stylepage %}
+
+{% block nav %}
+{% with titre="home"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<!-- hero slider -->
+<section class="hero-section overlay bg-cover" data-background="{% static 'barbillard/images/banner/banner.jpg' %}">
+	<div class="container">
+		<div class="hero-slider">
+			<!-- slider item -->
+			<div class="hero-slider-item">
+				<div class="row">
+					<div class="col-md-8">
+						<h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5"
+							data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1"> {% trans "Département d'Informatique" %}</h1>
+						<p class="text-white mb-4" data-animation-out="fadeOutRight" data-delay-out="5"
+							data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4"> {% trans "Bienvenue sur le site Web du Département d'Informatique de la Faculté des Sciences de l'Université de Yaoundé I." %}
+						</p>
+						<a href="{% url 'barbillard:info' %}" class="btn btn-primary" data-animation-out="fadeOutRight"
+							data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">
+							{% trans "Notre Barbillard" %}
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- slider item -->
+			<div class="hero-slider-item">
+				<div class="row">
+					<div class="col-md-8">
+						<h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3"
+							data-animation-in="fadeInDown" data-delay-in=".1"> {% trans "Département d'Informatique" %}</h1>
+						<p class="text-white mb-4" data-animation-out="fadeOutUp" data-delay-out="5"
+							data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4"> {% trans "L’informatique est partout dans nos vies. Que ce soit dans nos téléphones, nos réfrigérateurs ou nos voitures, l’informatique révolutionne la façon dont nous communiquons, pensons et travaillons." %}</p>
+						<a href="#" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5"
+							data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7"> {% trans "Nous Contacter" %}</a>
+					</div>
+				</div>
+			</div>
+			<!-- slider item -->
+			<div class="hero-slider-item">
+				<div class="row">
+					<div class="col-md-8">
+						<h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3"
+							data-animation-in="fadeInUp" data-delay-in=".1"> {% trans "Votre avenir brillant est notre mission" %}</h1>
+						<p class="text-white mb-4" data-animation-out="fadeOutDown" data-delay-out="5"
+							data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4"> {% trans "Au Département d'Informatique de la Faculté des Sciences de l'Université de Yaoundé I, nous formons nos Etudiants dans plusieurs domaines de l'Informatique." %}</p>
+						<a href="{% url 'barbillard:domaines' %}" class="btn btn-primary" data-animation-out="fadeOutDown"
+							data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7"> {% trans "Nos Pôles" %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /hero slider -->
+
+<!-- banner-feature -->
+<section class="bg-gray">
+	<div class="container-fluid p-0">
+		<div class="row no-gutters">
+			<div class="col-xl-4 col-lg-5 align-self-end">
+				<img class="img-fluid w-100" src="{% static 'barbillard/images/banner/banner-feature.jpg' %}"
+					alt="banner-feature">
+			</div>
+			<div class="col-xl-8 col-lg-7">
+				<div class="row feature-blocks bg-gray justify-content-between">
+					{% for domaine in liste_poles %}
+					<div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+						<i class="ti-book mb-xl-4 mb-lg-3 mb-4 feature-icon text-secondary"></i>
+						<h3 class="mb-xl-4 mb-lg-3 mb-4">{{domaine.title}}</h3>
+						<p>
+							{{domaine.description|truncatechars:100|safe}}
+						</p>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% comment %} <div class="m-auto"><a href="{% url 'domaines' %}" class="btn btn-primary"> {% trans "Découvrir toutes les Pôles" %}</a> {% endcomment %}
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /banner-feature -->
+
+<!-- about us -->
+<section class="section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 order-2 order-md-1">
+				<h2 class="section-title"> {% trans "À propos de nous" %}</h2>
+				<p>
+					{% trans "Les enseignements d’Informatique ont démarré à la Faculté des Sciences de l’Université de Yaoundé en 1978. À la faveur de la convention tripartite signée entre l’Université des Nations Unies (UNU), l’Institut National de Recherche en Informatique et Automatique (INRIA) et l’Université de Yaoundé I en 1985, la Maîtrise a démarré, suivie l’année d’après par le cycle de Doctorat." %}
+				</p>
+				<p>
+					{% trans "Le Département d'informatique abritant les bureaux, les laboratoires et les salles de TP/TD est situé à l'<b>Extension N° 1</b> de la Faculté des Sciences de l'Université de Yaoundé I." %}
+				</p>
+				<a href="{% url 'barbillard:presentation' %}" class="btn btn-primary-outline"> {% trans "Lire Plus" %}</a>
+			</div>
+			<div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+				<img class="img-fluid w-100" src="{% static 'barbillard/images/about/about-us.jpg' %}"
+					alt="about image">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /about us -->
+
+<!-- program us -->
+<section class="section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h2 class="section-title"> {% trans "Nos progammes de formation" %}</h2>
+			</div>
+			<div class="col-md-12 order-2 order-md-1">
+				<h3 class="section-title"> -- {% trans "Progammes de formation fondamentale" %}</h3>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:licence' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-bookmark m-auto feature-icon"></i>
+						<h4> {% trans "Licence" %}</h4>
+						<p>
+							{% trans "Le cycle de Licence qui s'étant sur six (06) semestres, donne droit au diplôme de Licence" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:master' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-medall-alt m-auto feature-icon"></i>
+						<h4> {% trans "Master" %}</h4>
+						<p>
+							{% trans "En quatre (04) semestres, subdivisée en Master I et Master II, donne droit au Diplôme de Master 2" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:doctorat' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-write m-auto feature-icon"></i>
+						<h4> {% trans "Doctorat/PhD" %}</h4>
+						<p>
+							{% trans "En six (06) semestres lui-aussi, donne droit au diplôme de Doctorat/PhD" %}
+						</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<br><br>
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h3 class="section-title"> -- {% trans "Progammes de formation professionnelle" %}</h3>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:licence' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-bookmark m-auto feature-icon"></i>
+						<h4> {% trans "Licence Pro (ICT4D)" %}</h4>
+						<p>
+							{% trans "Le cycle de Licence qui s'étant sur six (06) semestres, donne droit au diplôme de Licence" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:master' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-medall-alt m-auto feature-icon"></i>
+						<h4> {% trans "Master RAM" %}</h4>
+						<p>
+							{% trans "En quatre (04) semestres, subdivisée en Master I et Master II, donne droit au Diplôme de Master 2" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:doctorat' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-write m-auto feature-icon"></i>
+						<h4> {% trans "Master SIGL" %}</h4>
+						<p>
+							{% trans "En six (06) semestres lui-aussi, donne droit au diplôme de Doctorat/PhD" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:doctorat' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-write m-auto feature-icon"></i>
+						<h4> {% trans "Master SSI" %}</h4>
+						<p>
+							{% trans "En six (06) semestres lui-aussi, donne droit au diplôme de Doctorat/PhD" %}
+						</p>
+					</div>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</section>
+<!-- /program us -->
+
+<!-- courses -->
+<section class="section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="d-flex align-items-center @@justify-content-between">
+					<h2 class="section-title"> {% trans "Quelques uns de nos cours" %}</h2>
+					<div class="border-top w-100 border-primary d-none d-sm-block"></div>
+					<div>
+						<a href="{% url 'enseignement:courses' %}" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">
+							{% trans "Voir Plus" %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- course list -->
+		<!-- <div class="row"> -->
+		<div class="row @@justify-content-center">
+			<!-- course item -->
+			{% for cours in liste_cours %}
+			<div class="col-lg-4 col-sm-6 mb-5">
+				<div class="card p-0 border-primary rounded-0 hover-shadow">
+					<img class="card-img-top rounded-0" style="height: 288px;" src="{{cours.image.url}}"
+						alt="{{cours.slug}}">
+					<div class="card-body">
+						<ul class="list-inline mb-2">
+							<li class="list-inline-item"><i
+									class="ti-calendar mr-1 text-color"></i>{{cours.Niveau.get_level_display}}</li>
+							<li class="list-inline-item"><a class="text-color"
+									href="#">{{cours.get_domaine_display}}</a></li>
+						</ul>
+						<a href="{% url 'enseignement:detail_course' cours.slug %}">
+							<h4 class="card-title">{{cours.title}}</h4>
+						</a>
+						<p class="card-text mb-4">
+							{{cours.body}}
+						</p>
+						<a href="{% url 'enseignement:detail_course' cours.slug %}" class="btn btn-primary btn-sm"> {% trans "Voir le Syllabus" %}</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<!-- /course list -->
+		<!-- mobile see all button -->
+		<div class="row">
+			<div class="col-12 text-center">
+				<a href="{% url 'enseignement:courses' %}" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block"> {% trans "Voir Plus" %}</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /courses -->
+
+<!-- cta -->
+<section class="section bg-secondary">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h6 class="text-white font-secondary mb-0"> {% trans "Pour les nouveaux étudiants," %}</h6>
+				<h2 class="section-title text-white"> {% trans "Préinscrivez-vous à l'Université de Yaoundé I" %}</h2>
+				<a href="https://www.preinscriptions.uninet.cm/" target="_blank"
+					class="btn btn-secondary"> {% trans "Préinscription" %}</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /cta -->
+
+<!-- success story -->
+<section class="section bg-cover" data-background="{% static 'barbillard/images/backgrounds/success-story.jpg' %}">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-sm-4 position-relative success-video">
+				<a class="play-btn venobox" href="#" data-vbtype="video">
+					<i class="ti-control-play"></i>
+				</a>
+			</div>
+			<div class="col-lg-6 col-sm-8">
+				<div class="bg-white p-5">
+					<h2 class="section-title"> {% trans "Nos grandes réussites" %}</h2>
+					<p> {%  trans "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat." %}</p>
+					<p> {% trans "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris" %}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /success story -->
+
+<!-- events -->
+<section class="section bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="d-flex align-items-center section-title @@justify-content-between">
+					<h2 class="mb-0 text-nowrap mr-3"> {% trans "Evènements à Venir" %}</h2>
+					<div class="border-top w-100 border-primary d-none d-sm-block"></div>
+					<div>
+						<a href="{% url 'barbillard:event' %}" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">
+							{% trans "Voir Plus" %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="row"> -->
+		<div class="row @@justify-content-center">
+			{% for event in liste_evenements %}
+			<!-- event -->
+			<div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+				<div class="card border-0 rounded-0 hover-shadow">
+					<div class="card-img position-relative">
+						<img class="card-img-top rounded-0" style="height: 300px;" src="{{event.image.url}}"
+							alt="{{event.slug}}">
+						<div class="card-date"><span>{{event.date|date:"d"}}</span><br>{{event.date|date:"F"}}</div>
+					</div>
+					<div class="card-body">
+						<!-- location -->
+						<p><i class="ti-location-pin text-secondary mr-2"></i>{{event.lieu}}</p>
+						<a href="{% url 'barbillard:detail_event' event.slug %}">
+							<h4 class="card-title">{{event.title}}</h4>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<!-- mobile see all button -->
+		<div class="row justify-content-center justify-content-between">
+			<div class="col-12 text-center">
+				<a href="{% url 'barbillard:event' %}" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block"> {% trans "Voir
+					Plus" %}</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /events -->
+
+<!-- teachers -->
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="d-flex align-items-center @@justify-content-between">
+					<h2 class="section-title"> {% trans "Nos Enseignants" %}</h2>
+					<div class="border-top w-100 border-primary d-none d-sm-block"></div>
+					<div>
+						<a href="{% url 'enseignement:enseignant' %}"
+							class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">
+							{% trans "Voir Plus" %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row @@justify-content-center">
+			<!-- teacher item -->
+			{% for teacher in liste_enseignants %}
+			<div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+				<div class="card border-0 rounded-0 hover-shadow">
+					<img class="card-img-top rounded-0" style="height: 394px;" src="{{teacher.photo.url}}"
+						alt="{{teacher.last_name}}">
+					<div class="card-body">
+						<a href="{% url 'enseignement:detail_enseignant' teacher.slug %}">
+							<h4 class="card-title">{{teacher.titre}} {{teacher.first_name}} {{teacher.last_name}}</h4>
+						</a>
+						<p>{{teacher.get_grade_display}}</p>
+						<ul class="list-inline">
+							{% if teacher.facebook_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{teacher.facebook_url}}"><i
+										class="ti-facebook"></i></a>
+							</li>
+							{% endif %}
+							{% if teacher.twitter_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{teacher.twitter_url}}"><i
+										class="ti-twitter-alt"></i></a>
+							</li>
+							{% endif %}
+							{% if teacher.linkedin_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{teacher.linkedin_url}}"><i
+										class="ti-linkedin"></i></a>
+							</li>
+							{% endif %}
+							{% if teacher.github_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{teacher.github_url}}"><i
+										class="ti-github"></i></a>
+							</li>
+							{% endif %}
+							{% if teacher.site_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{teacher.site_url}}"><i
+										class="ti-world"></i></a>
+							</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<!-- /teacher item -->
+		<!-- mobile see all button -->
+		<div class="row justify-content-center justify-content-between">
+			<div class="col-12 text-center">
+				<a href="{% url 'enseignement:courses' %}" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block"> % trans "Voir
+					Plus" %</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /teachers -->
+
+<!-- blog -->
+<section class="section pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="d-flex align-items-center @@justify-content-between">
+					<h2 class="section-title"> {% trans "Dernières Nouvelles(Blog)" %}</h2>
+					<div class="border-top w-100 border-primary d-none d-sm-block"></div>
+					<div>
+						<a href="{% url 'blog:article' %}" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">
+							{% trans "Voir Plus" %}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row @@justify-content-center">
+			<!-- blog post -->
+			{% for article in liste_articles %}
+			<article class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+				<div
+					class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+					<img class="card-img-top rounded-0" style="height: 236px;" src="{{article.image.url}}"
+						alt="{{article.title}}">
+					<div class="card-body">
+						<!-- post meta -->
+						<ul class="list-inline mb-3">
+							<!-- post date -->
+							<li class="list-inline-item mr-3 ml-0">{{article.created_at|date:"d"}}
+								{{article.created_at|date:"N"}}, {{article.created_at|date:"Y"}}</li>
+							<!-- author -->
+							<li class="list-inline-item mr-3 ml-0">Par {{article.user}}</li>
+						</ul>
+						<a href="{% url 'detail_article' article.slug %}">
+							<h4 class="card-title">{{article.title}}</h4>
+						</a>
+						<p class="card-text">{{article.body|truncatechars:60|safe}}</p>
+						<a href="{% url 'detail_article' article.slug %}" class="btn btn-primary btn-sm"> {% trans "Lire Plus" %}</a>
+					</div>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+		<!-- mobile see all button -->
+		<div class="row justify-content-center">
+			<div class="col-12 text-center">
+				<a href="{% url 'blog:article' %}" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block"> {% trans "Voir Plus" %}</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /blog -->
+
+{% endblock content %}

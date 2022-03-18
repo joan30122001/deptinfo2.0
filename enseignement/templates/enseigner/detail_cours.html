@@ -1,0 +1,231 @@
+{% extends 'information/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>{{cours.title}} | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="{{cours.title}} - {{cours.code}}">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, cours, UE, syllabus, {{cours.code}}, {{cours.title}}">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{cours.title}} | Département d'Informatique">
+<meta property="og:description" content="{{cours.title}} - {{cours.code}}">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{cours.image.url}}">
+<meta property="og:image:type" content="image/jpg" />
+<!-- <meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" /> -->
+<meta property="og:image:alt" content="{{cours.title}}" />
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'information/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary"
+                            href="{% url 'courses' %}">Cours</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">
+                        {{ cours.code }} - {{cours.title}}
+                    </li>
+                </ul>
+                <!-- <p class="text-lighten"></p> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <!-- course thumb -->
+                <img src="{{ cours.image.url }}" class="img-fluid w-100">
+            </div>
+        </div>
+        <!-- program info -->
+        <div class="row col-xl-12 mb-4 mb-xl-0">
+            <h2>{{ cours.title }}</h2>
+        </div>
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-10 order-sm-3 order-xl-2 col-12 order-2">
+                <ul class="list-inline text-xl-left">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-book text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "SEMESTRE" %}</h6>
+                                <p class="mb-0">{{ cours.get_semester_display }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "DUREE" %}</h6>
+                                <p class="mb-0">{{ cours.hours }} {% trans "Heures" %}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-wallet text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "NIVEAU" %}</h6>
+                                <p class="mb-0">{{ cours.Niveau.get_level_display }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-world text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "DOMAINE" %}</h6>
+                                <p class="mb-0">{{ cours.get_domaine_display }}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {% if cours.piecejointe %}
+            <div class="col-xl-2 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+                <a href="{{ cours.piecejointe.url }}" download="Syllabus {{ cours.code }} - {{ cours.slug }}"
+                    class="btn btn-primary"> {% trans "Télécharger" %}</a>
+            </div>
+            {% endif %}
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+        <!-- program details -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3> {% trans "Objectifs du Cours" %}</h3>
+                <p>
+                    {{cours.objectif}}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3>Contenu</h3>
+                <p>
+                    {{cours.content}}
+                </p>
+            </div>
+            {% if cours.piecejointe %}
+            <div class="col-12 mb-4">
+                <a href="{{ cours.piecejointe.url }}" download="Syllabus {{ cours.code }} - {{ cours.slug }}"
+                    class="btn btn-primary">
+                    Télécharger Syllabus {{ cours.code }}
+                </a>
+            </div>
+            {% endif %}
+            <!-- teacher -->
+            <div class="col-12">
+                <h5 class="mb-3"> {% trans "Enseignant" %}{{ enseignants|pluralize }}</h5>
+                {% for ens in enseignants %}
+                <div class="d-flex justify-content-between align-items-center flex-wrap pr-4 hover-shadow">
+                    <div class="media mb-2 mb-sm-0">
+                        <img class="mr-4 img-fluid w-15" src="{{ens.photo.url}}" alt="Teacher">
+                        <div class="media-body">
+                            <a href="{% url 'enseignement:detail_enseignant' ens.last_name|slugify %}">
+                                <h4 class="mt-0">{{ens.titre}} {{ens.first_name}} {{ens.last_name}}</h4>
+                            </a>
+                            {{ens.get_grade_display}}
+                        </div>
+                    </div>
+                    <div class="social-link">
+                        <h6 class="d-none d-sm-block">Social Link</h6>
+                        <ul class="list-inline">
+                            {% if teacher.facebook_url %}
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"
+                                    target="_blank">
+                                    <i class="ti-facebook"></i></a>
+                            </li>
+                            {% endif %}
+                            {% if teacher.twitter_url %}
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"
+                                    target="_blank">
+                                    <i class="ti-twitter-alt"></i></a>
+                            </li>
+                            {% endif %}
+                            {% if teacher.linkedin_url %}
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"
+                                    target="_blank">
+                                    <i class="ti-linkedin"></i></a>
+                            </li>
+                            {% endif %}
+                            {% if teacher.site_url %}
+                            <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"
+                                    target="_blank">
+                                    <i class="ti-world"></i></a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-bottom border-primary mb-4"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->
+
+<!-- related course -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title"> {% trans "Cours en Relation" %}</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- course item -->
+            {% for c in cer %}
+            {% if c.slug != cours.slug %}
+            <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="card p-0 border-primary rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" style="height: 288px;" src="{{c.image.url}}" alt="{{c.slug}}">
+                    <div class="card-body">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><i
+                                    class="ti-calendar mr-1 text-color"></i>{{c.Niveau.get_level_display}}</li>
+                            <li class="list-inline-item"><a class="text-color" href="#">{{c.get_domaine_display}}</a>
+                            </li>
+                        </ul>
+                        <a href="{% url 'enseignement:detail_course' c.slug %}">
+                            <h4 class="card-title">{{c.title}}</h4>
+                        </a>
+                        <p class="card-text mb-4">
+                            {{c.body}}
+                        </p>
+                        <a href="{% url 'enseignement:detail_course' c.slug %}" class="btn btn-primary btn-sm"> {%trans "Voir le Syllabus" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- /related course -->
+
+{% endblock content %}

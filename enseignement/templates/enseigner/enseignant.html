@@ -1,0 +1,118 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Nos Enseignants | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Nos enseignants au Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, enseignants">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nos Enseignants | Département d'Informatique">
+<meta property="og:description"
+    content="Nos enseignants au Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+
+{% block nav %}
+	{% with titre="enseignant"%}
+		{% include 'barbillard/_partials/navbar.html' %}
+	{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#">{% trans "Corps Enseignants" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">{% trans "Nos enseignants au Département d'Informatique" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- teachers -->
+<section class="section">
+    <div data-ref="mixitup-target" class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- teacher category list -->
+                <ul class="list-inline text-center filter-controls mb-5">
+                    <li class="list-inline-item m-3 text-uppercase" data-filter=".all">{% trans "Tous" %}</li>
+                    <li class="list-inline-item m-3 text-uppercase" data-filter=".PR">{% trans "Professeurs" %}</li>
+                    <li class="list-inline-item m-3 text-uppercase" data-filter=".MC">{% trans "Maître de conférences" %}</li>
+                    <li class="list-inline-item m-3 text-uppercase" data-filter=".CC">{% trans "Chargé(e)s de Cours" %}</li>
+                    <li class="list-inline-item m-3 text-uppercase" data-filter=".ASSISTANT">{% trans "Assistants" %}</li>
+                    <li class="list-inline-item m-3 text-uppercase" data-filter=".VAC">{% trans "Vacataires" %}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- teacher list -->
+        <div class="row" data-ref="mixitup-container">
+            {% for ens in liste_enseignants %}
+            <!-- teacher -->
+            <div data-ref="mixitup-target" class="col-lg-4 col-sm-6 mb-5 all {{ens.grade}}">
+                <div class="card border-0 rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" src="{{ens.photo.url}}" alt="teacher">
+                    <div class="card-body">
+                        <a href="{% url 'enseignement:detail_enseignant' ens.slug %}">
+                            <h4 class="card-title">{{ens.titre}} {{ens.first_name}} {{ens.last_name}}</h4>
+                        </a>
+                        <p>{{ens.get_grade_display}}</p>
+                        <ul class="list-inline">
+							{% if ens.facebook_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{ens.facebook_url}}"><i class="ti-facebook"></i></a>
+							</li>
+							{% endif %}
+							{% if ens.twitter_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{ens.twitter_url}}"><i class="ti-twitter-alt"></i></a>
+							</li>
+							{% endif %}
+							{% if ens.linkedin_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{ens.linkedin_url}}"><i class="ti-linkedin"></i></a>
+							</li>
+							{% endif %}
+							{% if ens.site_url %}
+							<li class="list-inline-item">
+								<a class="text-color" target="_blank" href="{{ens.site_url}}"><i class="ti-world"></i></a>
+							</li>
+							{% endif %}
+						</ul>
+                    </div>
+                </div>
+            </div>
+            <!-- teacher -->
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- /teachers -->
+
+{% endblock content %}

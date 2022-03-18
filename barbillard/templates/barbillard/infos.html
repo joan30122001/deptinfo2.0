@@ -1,0 +1,150 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>{% trans "Barbillard | Département d'Informatique" %}</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Barbillard du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Barbillard, informations, Infos">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Barbillard | Département d'Informatique">
+<meta property="og:description" content="Barbillard du Département d’Informatique">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block stylepage %}
+    <style>
+        @media (min-width: 768px){
+            .block-date {
+                width: 110px;
+                min-width: 110px;
+                max-width: 110px;
+            }
+        }
+    </style>
+{% endblock stylepage %}
+
+{% block nav %}
+	{% with titre="infos"%}
+		{% include 'barbillard/_partials/navbar.html' %}
+	{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="{% url 'barbillard:info' %}">{% trans "Barbillard" %}</a>
+                    </li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">{% trans "Ici, nous publions les informations urgentes et importantes, destinées aux Etudiants, aux Enseignants et au Public. Rassurez-vous d'être connecté pour accéder aux informations privées." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- notice -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <a href="{% url 'barbillard:barbillard_pdf' %}" style="margin-bottom:20px">
+	            Download Barbillards...
+            </a>
+            <div class="col-12">
+                <h4 class="section-title">{% trans "Rechercher une Infos" %}</h4>
+                <form action="" method="GET" class="row">    
+                    <div class="col-12">
+                        <input type="text" {% if searched %} value="{{searched}}" {% endif %} class="form-control mb-3" id="searched" name="searched" placeholder='{% trans "Recherche..." %}' />
+                    </div>
+                </form>
+                {% if searched %}
+                    <p>Résultat pour <span class="text-primary">{{searched}}</span></p>
+                {% endif %}
+                <hr>
+            </div>
+        
+            <div class="col-12">
+                {% if liste_infos %}
+                <ul class="list-unstyled">
+                    <!-- notice item -->
+                    {% for info in liste_infos %}
+                    <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+                        <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0 block-date">
+                            <span class="h2 d-block">{{ info.created_at|date:"d" }}</span> 
+                            <span style="text-transform: uppercase;">{{ info.created_at|date:"M" }}</span>,{{ info.created_at|date:"Y" }}
+                        </div>
+                        <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+                            <a href="{% url 'barbillard:detail_info' info.slug %}" class="h4 mb-3 d-block">{{ info.title }}
+                                {% if info.created_at != info.update_at %}
+                                    <em style="font-size: x-small;">({% trans "Modifié Il y a" %} {{ info.update_at|timesince }})</em>
+                                {% endif %}
+                            </a>
+                            <p class="mb-0">
+                                {{ info.body|truncatechars:184|safe }}
+                            </p>
+                            <i><span style="font-size: smaller;">{% trans "Il y a" %} {{ info.created_at|timesince }}</span></i>
+                        </div>
+                        <div class="d-md-table-cell text-right pr-0 pr-md-4">
+                            <a href="{% url 'barbillard:detail_info' info.slug %}" class="btn btn-primary">{% trans "Lire Plus" %}</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                    <!-- notice item --> 
+                </ul>
+                {% else %}
+                   <p class="text-secondary" style="font-size: 18px;">{% trans "Aucun résultat" %}</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+        {% if liste_infos.has_other_pages %}
+        <nav>
+        <ul class="pagination justify-content-center">
+            {% if liste_infos.has_previous %}
+            <li><a class="page-link" href="?page={{ liste_infos.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+            {% for i in liste_infos.paginator.page_range %}
+            {% if liste_infos.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if liste_infos.has_next %}
+            <li><a class="page-link" href="?page={{ liste_infos.next_page_number }}">&raquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+        </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+<!-- /notice -->
+{% endblock content %}

@@ -1,0 +1,152 @@
+{% extends 'information/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Licence Informatique | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Programme d’enseignements en Licence Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Licence">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Licence Informatique | Département d'Informatique">
+<meta property="og:description"
+    content="Programme d’enseignements en Licence Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'information/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'information/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="{% url 'programme' %}"> {% trans "Programme" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted"> {% trans "Licence Informatique" %}</li>
+                </ul>
+                <p class="text-lighten"> {% trans "Programme d’enseignements en Licence Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+    <div class="container">
+        <!-- program info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-6 order-1 col-sm-6 mb-4 mb-xl-0">
+                <h2> {% trans "Licence Informatique" %}</h2>
+            </div>
+            <div class="col-xl-3 order-sm-3 order-xl-2 col-12 order-2">
+                <ul class="list-inline text-xl-left">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-book text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "DUREE" %}</h6>
+                                <p class="mb-0"> {% trans "03 Ans" %}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">DURATION</h6>
+                                <p class="mb-0">03 Hours</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-wallet text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">FEE</h6>
+                                <p class="mb-0">From: $699</p>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-xl-3 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+                <a href="#" download="Grille Licence Informatique" class="btn btn-primary"> {% trans "Télécharger" %}</a>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+        <!-- program details -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3> {% trans "Objectifs de la Formation" %}</h3>
+                <p>
+                    {% trans "Cette licence vise le double objectif de poursuite d’études et de formation professionnelle. L’informatique est une discipline jeune aux multiples facettes, dont les métiers sont en constante évolution et en interaction avec les sciences connexes à l'informatique. Le parcours Informatique propose à la fois des unités d'enseignement fondamentales (mathématiques, algorithmique, langages de programmation issus des principaux paradigmes, outils formels, automates, cryptographie), ainsi que des unités d'enseignement ouvrant à une professionnalisation plus immédiate (systèmes informatiques, web, bases de données, programmation et conception orientées objet, réseaux, projets de développement). La relative pluridisciplinarité des premières années est une étape indispensable. Elle garantit une formation scientifique large, une ouverture d’esprit et une qualité du socle sur lequel l’étudiant fonde ses connaissances informatiques, selon deux approches : une fondamentale et l’autre plus technique." %}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3 class="mb-3"> {% trans "Compétences Acquises" %}</h3>
+                <div class="col-12 px-0">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-styled">
+                                <li> {% trans "Analyse, modélisation d’un problème, conception et mise en œuvre d’une solution informatique adaptée en choisissant des outils adéquats." %}
+                                </li>
+                                <li> {% trans "Conception d’IHM, d’applications Web, de systèmes d’information." %}</li>
+                                <li> {% trans "Utilisation de différents langages de programmation et systèmes d’exploitation." %}</li>
+                                <li> {% trans "Apprentissage des architectures matériels et des réseaux." %}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-styled">
+                                <li> {% trans "Configuration des équipements réseaux." %}</li>
+                                <li> {% trans "Déploiement des applications réseaux." %}</li>
+                                <li> {% trans "Compétences scientifiques non informatique (mathématiques, physiques et/ou électronique) en première année." %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <h3> {% trans "Conditions d'Accès" %}</h3>
+                <p>
+                    {% trans "Les étudiants sont admis au cycle de licence d'Informatique aux niveaux 1, 2 ou 3.<br> <strong>Accès en 1ère année licence (L1) :</strong> Baccalauréat Scientifique (dans l'ordre de préférence suivant ; C, E, TI, D avec une bonne note en mathématiques), GCE Advanced Level in two science subjects incluant les mathématique et excluant la religion.<br> <strong>Accès en 2ème année (L2) :</strong> Étudiants ayant au moins 45 crédits (ECTS) au L1.<br> <strong>Accès en 3ème année (L3) :</strong> Étudiants ayant validé les 120 crédits (ECTS) des niveaux 1 et 2." %}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3> {% trans "Débouchés" %}</h3>
+                <p>
+                    {% trans "Tel qu’il est conçu, le programme de la licence d'Informatique permet aux étudiants de poursuivre leurs études au cycle Master ou dans une école d'ingénieur ou d’envisager d’entrer dans la vie professionnelle avec des connaissances tant pratiques que théoriques leur permettant de s’adapter aux grands domaines de l’informatique et de ses applications. Les titulaires du diplôme peuvent occuper des emplois tel que : concepteur ou développeur d’applications, programmeur, adjoint ou assistant d’ingénieur ou de chef de projet." %}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <a href="#" download="Grille Licence Informatique" class="btn btn-primary">
+                    {% trans "Télécharger la Grille des enseignements" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->
+
+{% endblock content %}

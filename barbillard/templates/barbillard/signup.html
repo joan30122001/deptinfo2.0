@@ -1,0 +1,313 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'accounts/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css2.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Arial&display=swap'); */
+        body{
+            font-family: 'Poppins';
+            /* background-color: #00ac96; */
+            background-color: rgb(233, 230, 230);
+        }
+        
+        .name-logo{
+            margin-right: 79%;
+            margin-top: 15px;
+        }
+
+        .form-title{
+            background-color: #6A4E77;
+            color: white;
+            font-weight: 400;
+            margin-top: 5px;
+            padding-top: 10px;
+            padding-left: 10px;
+            margin-bottom: 5px;
+            height: 70px;
+            width: 100%;
+            font-size: x-large;
+        }
+        .connex{
+            display: flex;
+            justify-content: space-between;
+        }
+        .connex-title{
+            margin-right: 67%;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .content{
+            margin: 5%;
+            background-color: #fff;
+            padding: 12px 0 12px 0;
+            box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+        }
+        .form-group{
+            margin-left: 35px;
+            margin-bottom: 10px;
+        }
+        .form-control{
+            display: block;
+            width:100%;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height:1.5;
+            border-color: #6A4E77 !important;
+            border-style: solid !important;
+            border-width: 1px 1px 1px 1px !important;
+            padding: 10px !important;
+            /* color:#6A4E77; */
+            height: auto;
+            border-radius: 0;
+            background-color: #fff;
+            background-clip: padding-box;
+        }
+
+
+        .form-control:focus{
+
+            /* color: #6A4E77; */
+            background-color: #fff;
+            border-color: #fff;
+            outline: 0;
+            box-shadow: none;
+        }
+        /* .birthday-section{
+            padding: 15px;
+        } */
+        .btn-class{
+            border-color: #6A4E77;
+            color: #6A4E77;
+        }
+        .btn-class:hover{
+            background-color:  #6A4E77;
+            color: #fff;
+        }
+        .btn-classs{
+            border-color: #6A4E77;
+            /* color: #6A4E77; */
+            background-color:  #6A4E77;
+            color: #fff;
+            font-weight: bold;
+        }
+        .btn-classs:hover{
+            /* background-color:  #6A4E77; */
+            background-color:  #fff;
+            /* color: #fff; */
+            color: #6A4E77;
+        }
+        .info{
+            margin-top: 15px;
+            margin-left: 50px;
+        }
+        li{
+            font-size: 15px;
+        }
+        .operations a{
+            text-decoration: none;
+            color: #6A4E77;
+        }
+        .operations a:hover{
+            text-decoration: none;
+            color: #DE3A99;
+        }
+        .advertissment{
+            background-color: rgb(233, 230, 230);
+            margin-left: 2rem;
+            width: 93.5%;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .advertissment p{
+            font-size: 8px;
+        }
+        .advertissment h6{
+            font-size: 10px;
+            font-weight: bold;
+        }
+        ::placeholder{
+            font-size: 12px;
+            font-style: italic;
+            font-family: 'Arial';
+        }
+        .btn-classss{
+            border-color: #6A4E77;
+            background-color:  #6A4E77;
+            color: #fff;
+            margin-top: 10px;
+            margin-left: 32px;
+            width: 100%;
+            font-weight: bold;
+        }
+        /* .btn-classss:hover{
+            background-color:  #fff;
+            color: #6A4E77;
+        } */
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row content">
+            <div class="logo-content">
+                <div class="logo">
+                    <a href="{% url 'home' %}"><img class="img-fluid" src="{% static 'accounts/logo.png' %}" style="width: 15%; padding-left: 10px;"></a>
+                </div>
+            </div>
+            <div class="form-title">
+                <p> {% trans "Système d' authentification" %}</p>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="connex">
+                    <div class="connex-logo">
+                        <img src="{% static 'accounts/login.png' %}" style="width: 20px; height: 20px;" alt="">
+                    </div>
+                    <div class="connex-title">
+                        <p> {% trans "S'enregistrer" %}</p>
+                    </div>
+                </div>
+
+                {% include 'barbillard/_partials/messages.html' %}
+
+                <form action = "{% url 'barbillard:user_register' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <a href="javascript:visibilite('student');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
+                            <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></a>
+                            <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
+                        </div>
+                    </div>
+                    <div id="student" style="display:block;">
+                        {% comment %} <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
+                            </div>
+                        </div> {% endcomment %}
+                        <div class="form-group">
+                            <label for="nom d'utilisateur"> {% trans "Nom d'utilisateur" %} </label>
+                            {% comment %} <input type="text" name="username" placeholder="votre nom d'utilisateur..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="matricule"> {% trans "Matricule" %} </label>
+                            {% comment %} <input type="text" name="matricule" placeholder="votre matricule..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.matricule }}
+                        </div>
+                        <div class="form-group">
+                            <label for="email"> {% trans "Email" %} </label>
+                            {% comment %} <input type="email" name="email" placeholder="votre adresse email..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label for="niveau"> {% trans "Niveau" %} </label>
+                            <!-- <input type="text" name="matricule" placeholder="votre matricule..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> -->
+                            {% comment %} <select class="form-control" aria-label="Default select example" style="width: 300px; height: 45px; border-radius: 3px;">
+                                <option selected>Informatique 1</option>
+                                <option value="1">Informatique 2</option>
+                                <option value="2">Informatique 3</option>
+                                <option value="3">Master 1</option>
+                                <option value="4">Master 2</option>
+                                <option value="5">ICT L1</option>
+                                <option value="6">ICT L2</option>
+                                <option value="7">ICT L3</option>
+                                <option value="8">Master Pro</option>
+                            </select> {% endcomment %}
+                            {{ form.niveau }}
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone"> {% trans "Telephone" %} </label>
+                            {% comment %} <input type="tel" name="telephone" placeholder="votre numéreo de téléphone..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.phone }}
+                        </div>
+                        <div class="form-group">
+                            <label for="password"> {% trans "Mot de passe" %} </label>
+                            {% comment %} <input type="password" name="password" placeholder="votre mot de passe..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.password }}
+                        </div>
+                        <div class="form-group">
+                            <label for="password"> {% trans "Confirmer mot de passe" %} </label>
+                            {% comment %} <input type="password" name="password" placeholder="votre mot de passe..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.password_repeat }}
+                        </div>
+                        <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
+                    </div>
+                    <div id="teacher" style="display:none;">
+                        <div class="form-group">
+                            <label for="telephone"> {% trans "Telephone" %} </label>
+                            {% comment %} <input type="tel" name="telephone" placeholder="votre numéreo de téléphone..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.phone }}
+                        </div>
+                        <div class="form-group">
+                            <label for="password"> {% trans "Mot de passe" %} </label>
+                            {% comment %} <input type="password" name="password" placeholder="votre mot de passe..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.password }}
+                        </div>
+                        <div class="form-group">
+                            <label for="password"> {% trans "Confirmer mot de passe" %} </label>
+                            {% comment %} <input type="password" name="password" placeholder="votre mot de passe..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.password_repeat }}
+                        </div>
+                        <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
+                    </div>
+                    {% comment %} <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button> {% endcomment %}
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="info">
+                    <h6 style="font-weight: bold; font-size: larger;"> {% trans "Connexion" %} </h6>
+                    <button class="btn btns btn-classs"> {% trans "Me connecter" %} </button>
+                    <h6 style="margin-top: 15px; margin-bottom: 15px; font-weight: bold;"> {% trans "Dépannage" %}</h6>
+                    <ul class="operations">
+                        <a href="#"><li> {% trans "J' ai oublié mon mot de passe" %}</li></a>
+                        <a href="#"><li> {% trans "Je désire modifier mon mot de passe" %} </li></a>
+                        <a href="#"><li> {% trans "Je ne me souviens pas de mon adresse email" %} </li></a>
+                        <a href="#"><li> {% trans "J' ai besoin d'aide" %}</li></a>
+                        <a href="#"><li> {% trans "Mon portail" %}</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="advertissment">
+                <h6> {% trans "Protégez vos données personnelles" %}</h6>
+                <p> {% trans "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry." %}</p>
+            </div>
+            <div class="return">
+                <a href="{% url 'barbillard:user_login' %}"><button class="btn btns btn-classss"><img src="{% static 'accounts/left-arrow.svg' %}" style="width: 15px; height: 15px; margin-right: 15px;">Accueil</button></a>
+            </div>
+        </div>
+      </div>
+
+      <link rel="stylesheet" href="{% static 'accounts/jquery-3.2.1.slim.min.js' %}">
+      <link rel="stylesheet" href="{% static 'accounts/popper.min.js' %}">
+      <link rel="stylesheet" href="{% static 'accounts/bootstrap.min.js' %}">
+</body>
+</html>
+<script>
+    var divPrecedent=document.getElementById('student');
+    function visibilite(divId)
+    {
+        divPrecedent.style.display='none';
+        divPrecedent=document.getElementById(divId);
+        divPrecedent.style.display='';
+    }
+</script>

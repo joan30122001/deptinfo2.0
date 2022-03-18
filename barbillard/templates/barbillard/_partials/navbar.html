@@ -1,0 +1,168 @@
+{% load static %}
+{% load i18n %}
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          <a class="text-color mr-3" href="callto:+237000111222"><strong> {% trans "TELEPHONE" %}</strong> +237 000 111
+            222</a>
+          <ul class="list-inline d-inline">
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i
+                  class="ti-facebook"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i
+                  class="ti-twitter-alt"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i
+                  class="ti-linkedin"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase {% ifequal titre 'infos' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block" href="{% url 'barbillard:info' %}">{{user.groups.all.0}}</a></li>
+            <li class="list-inline-item"><a
+                class="text-uppercase {% ifequal titre 'infos' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                href="{% url 'barbillard:info' %}"> {% trans "Barbillard" %}</a></li>
+            <li class="list-inline-item"><a
+                class="text-uppercase {% ifequal titre 'events' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                href="{% url 'barbillard:event' %}"> {% trans "Nos évènements" %}</a></li>
+            {% if user.is_authenticated %}
+            <li class="list-inline-item"><a
+                class="text-uppercase {% ifequal titre 'infos0' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                href="{% url 'barbillard:logout' %}"> {% trans "Déconnexion" %}</a></li>
+            {% else %}
+            <li class="list-inline-item"><a
+                class="text-uppercase {% ifequal titre 'infos0' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                href="{% url 'barbillard:user_login' %}"> {% trans "Connexion" %}</a></li>
+            {% endif %}
+            {% if not user.is_authenticated %}
+            <li class="list-inline-item"><a
+                class="text-uppercase {% ifequal titre 'infos1' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                href="{% url 'barbillard:user_register' %}"> {% trans "Créer un compte" %}</a></li>
+            {% endif %}
+            <li class="list-inline-item">
+              {% comment %} <div class="dropdownN">
+                <form class="form-inline nav-item" action="{% url 'set_language' %}" method="post" style="/*padding-bottom: 4px;*/ padding-top: 6px;">
+                    {% csrf_token %}
+                    {% get_current_language as l %}
+            
+                    <select class="custom-select my-1 mr-sm-2" name="language" style="display: none;">
+                        {% for lang in LANGUAGES %}
+                        <option class="font-weight-bold" value="{{ lang.0 }}" {% if lang.0 != l %}selected{% endif %}>{{ lang.0 }}</option>
+                        {% endfor %}
+                    </select>
+            
+                    <button class="btn btn-primary" data-animation-out="fadeOutDown"
+                    data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7" type="submit" style="height: 20px; padding-top: 0px; font-size: 12px; width: 80px; padding-left: 18px" >
+                        {% if l == 'fr' %}
+                          English
+                        {% else %}
+                          Français
+                        {% endif %}
+                    </button>
+                </form>
+              </div> {% endcomment %}
+
+
+
+              
+              {% comment %}<form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+                <ul>
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% get_available_languages as LANGUAGES %}
+                  {% get_language_info_list for LANGUAGES as languages %}
+                  {% for language in languages %}
+                  <li class="{% if language.code == LANGUAGE_CODE %}hidden{% endif %}">
+                    <button type="submit" name="language" value="{{ language.code }}"
+                      class="btn btn-primary" style="height: 20px; padding-top: 0px; font-size: 12px; width: 80px; padding-left: 18px">
+                      {{ language.name_local|title }}
+                    </button>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </form>{% endcomment %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'barbillard/images/logo.png' %}"
+            alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center" style="font-size: small;">
+            <li class="nav-item {% ifequal titre 'home' %} active {% endifequal %}">
+              <a class="nav-link" href="{% url 'home' %}">{% trans "Accueil" %}</a>
+            </li>
+            <li class="nav-item dropdown view 
+              {% ifequal titre 'presentation' %} active {% endifequal %}
+              {% ifequal titre 'domaines' %} active {% endifequal %}
+              {% ifequal titre 'programme' %} active {% endifequal %}
+              {% ifequal titre 'courses' %} active {% endifequal %}
+              {% ifequal titre 'coordonnees' %} active {% endifequal %}
+            ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {% trans "À propos" %}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'barbillard:presentation' %}"> {% trans "Présentation" %}</a>
+                <a class="dropdown-item" href="{% url 'barbillard:domaines' %}"> {%trans "Nos Domaines" %}</a>
+                <a class="dropdown-item" href="{% url 'barbillard:programme' %}"> {% trans "Programme des Enseignements" %}</a>
+                <a class="dropdown-item" href="{% url 'enseignement:courses' %}"> {% trans "Nos Cours" %}</a>
+                <a class="dropdown-item" href="{% url 'barbillard:coordonnees' %}"> {% trans "Coordonnées" %}</a>
+              </div>
+            </li>
+            <li class="nav-item {% ifequal titre 'enseignant' %} active {% endifequal %}">
+              <a class="nav-link" href="{% url 'enseignement:enseignant' %}">{% trans "Nos Enseignants" %}</a>
+            </li>
+            <li class="nav-item dropdown view
+              {% ifequal titre 'barbillard:comsas' %} active {% endifequal %}
+              {% ifequal titre 'gdsc' %} active {% endifequal %}
+            ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {% trans "Espace Etudiants" %}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="{% url 'barbillard:comsas' %}"> {% trans "COMSAS" %}</a>
+                <a class="dropdown-item" href="{% url 'barbillard:gdsc' %}"> {%trans "GDSC" %}</a>
+              </div>
+            </li>
+            <li class="nav-item {% ifequal titre 'alumni' %} active {% endifequal %}">
+              <a class="nav-link" href="#"> {% trans "Espace ALUMNI" %}</a>
+            </li>
+            <li class="nav-item {% ifequal titre 'partenaires' %} active {% endifequal %}">
+              <a class="nav-link" href=" {% url 'barbillard:partenaire' %} "> {% trans "Partenaires" %}</a>
+            </li>
+            <li class="nav-item {% ifequal titre 'article' %} active {% endifequal %}">
+              <a class="nav-link" href="{% url 'blog:article' %}"> {% trans "BLOG" %}</a>
+            </li>
+            <li class="nav-item {% ifequal titre 'contact' %} active {% endifequal %}">
+              <a class="nav-link" href="{% url 'barbillard:contact' %}"> {% trans "CONTACT" %}</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->

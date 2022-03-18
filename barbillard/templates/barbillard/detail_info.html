@@ -1,0 +1,91 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>{{info.title}} | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Barbillard : {{info.title}}">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Barbillard, information, infos">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{info.title}} | Département d'Informatique">
+<meta property="og:description" content="Barbillard : {{info.title}}">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+{% if info.image %}
+    <meta property="og:image" content="{{info.image.url}}">
+    <meta property="og:image:alt" content="{{event.title}}" />
+{% else %}
+    <meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="450" />
+{% endif %}
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:alt" content="{{info.title}}" />
+<meta property="article:published_time" content="{{info.created_at|date:'Y'}}-{{info.created_at|date:'m'}}-{{info.created_at|date:'d'}}">
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="{% url 'barbillard:info' %}">{% trans "Barbillard" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">{{ info.title|safe }}</li>
+                </ul>
+                <p class="text-lighten">{{ info.body|safe|truncatechars:184 }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- notice details -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex">
+                    <div class="text-center mr-4">
+                        <div class="p-4 bg-primary text-white">
+                            <span class="h2 d-block">{{ info.created_at|date:"d" }}</span>
+                            <span style="text-transform: uppercase;">{{ info.created_at|date:"M" }}</span>,{{info.created_at|date:"Y" }}
+                        </div>
+                    </div>
+                    <!-- notice content -->
+                    <div>
+                        <h3 class="mb-4">{{ info.title|safe }}</h3>
+                        {% if info.created_at != info.update_at %}
+                            <em style="font-size: x-small;">({% trans "Modifié Il y a" %} {{ info.update_at|timesince }})</em>
+                        {% endif %}
+                        <p>
+                            {{ info.body|safe }}<br>
+                            {% if info.image %}
+                                <img class="img-fluid w-50" alt="{{info.slug}}" src="{{info.image.url}}">
+                            {% endif %}
+                        </p>
+                        {% if info.piecejointe %}
+                            <a href="{{info.piecejointe.url}}" download={{info.piecejointe.name}} class="btn btn-primary">Télécharger la pièce jointe</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /notice details -->
+
+{% endblock content %}

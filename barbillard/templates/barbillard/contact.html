@@ -1,0 +1,107 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>Nous Contacter | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Page de Contact">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Contact, Contacter, ecrire">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nous Contacter | Département d'Informatique">
+<meta property="og:description" content="Page de Contact">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block stylepage %}
+
+{% endblock stylepage %}
+
+{% block nav %}
+{% with titre="contact"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Contactez-nous" %}</a>
+                    </li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">
+                    {% trans "Vous avez des questions ? Ne vous inquiétez pas. Remplissez simplement le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- contact -->
+<section class="section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-title"> {% trans "Nous Contacter" %}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <form action="#">
+                    <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Votre Nom">
+                    <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Adresse E-mail">
+                    <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Sujet">
+                    <textarea name="message" id="message" class="form-control mb-3"
+                        placeholder="Votre Message"></textarea>
+                    <button type="submit" value="send" class="btn btn-primary"> {% trans "ENVOYER" %}</button>
+                </form>
+            </div>
+            <div class="col-lg-5">
+                <img class="img-fluid w-100" src="{% static 'barbillard/images/about/dpt-info.jpg' %}"
+                    alt="Département d'Informatique">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /contact -->
+
+
+
+<!-- gmap -->
+<section class="section pt-0">
+    <!-- Google Map -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d793.4077716979664!2d11.500034159256968!3d3.8575588801460596!2m3!1f307.4999999999998!2f0!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x108bcfa2c4cefca1%3A0x32ba16566cca02a0!2sDepartement%20D&#39;informatique%20et%20De%20Mathematiques!5e1!3m2!1sfr!2scm!4v1627982075971!5m2!1sfr!2scm"
+                width="1360" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+<!-- /gmap -->
+
+{% endblock content %}

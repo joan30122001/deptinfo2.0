@@ -1,0 +1,1742 @@
+[
+    {
+        "label": "barbillard.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "barbillard.validators",
+        "description": "barbillard.validators",
+        "detail": "barbillard.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ckeditor.fields",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ckeditor.fields",
+        "description": "ckeditor.fields",
+        "detail": "ckeditor.fields",
+        "documentation": {}
+    },
+    {
+        "label": "RichTextField",
+        "importPath": "ckeditor.fields",
+        "description": "ckeditor.fields",
+        "isExtraImport": true,
+        "detail": "ckeditor.fields",
+        "documentation": {}
+    },
+    {
+        "label": "RichTextField",
+        "importPath": "ckeditor.fields",
+        "description": "ckeditor.fields",
+        "isExtraImport": true,
+        "detail": "ckeditor.fields",
+        "documentation": {}
+    },
+    {
+        "label": "RichTextField",
+        "importPath": "ckeditor.fields",
+        "description": "ckeditor.fields",
+        "isExtraImport": true,
+        "detail": "ckeditor.fields",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "pre_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "pre_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "pre_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "unique_slug_generator",
+        "importPath": "deptinfo.utils",
+        "description": "deptinfo.utils",
+        "isExtraImport": true,
+        "detail": "deptinfo.utils",
+        "documentation": {}
+    },
+    {
+        "label": "unique_slug_generator",
+        "importPath": "deptinfo.utils",
+        "description": "deptinfo.utils",
+        "isExtraImport": true,
+        "detail": "deptinfo.utils",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "gettext",
+        "importPath": "django.utils.translation",
+        "description": "django.utils.translation",
+        "isExtraImport": true,
+        "detail": "django.utils.translation",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "info",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_info",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "barbillard_pdf",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "presentation",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "licence",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "domaines",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "contact_page",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "coordonnees",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "partenaire",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "master",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "doctorat",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "programme",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "gdsc",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "comsas",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "# courses",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "# detail_course",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "event",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_event",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "event_pdf",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "# enseignant",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "# detail_enseignant",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "isExtraImport": true,
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Pole",
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "isExtraImport": true,
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Ue",
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "isExtraImport": true,
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Enseignant",
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "isExtraImport": true,
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Article",
+        "importPath": "blog.models",
+        "description": "blog.models",
+        "isExtraImport": true,
+        "detail": "blog.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Article",
+        "importPath": "blog.models",
+        "description": "blog.models",
+        "isExtraImport": true,
+        "detail": "blog.models",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "EmptyPage",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "PageNotAnInteger",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "EmptyPage",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "PageNotAnInteger",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "EmptyPage",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "PageNotAnInteger",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "FileResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "FileResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "canvas",
+        "importPath": "reportlab.pdfgen",
+        "description": "reportlab.pdfgen",
+        "isExtraImport": true,
+        "detail": "reportlab.pdfgen",
+        "documentation": {}
+    },
+    {
+        "label": "canvas",
+        "importPath": "reportlab.pdfgen",
+        "description": "reportlab.pdfgen",
+        "isExtraImport": true,
+        "detail": "reportlab.pdfgen",
+        "documentation": {}
+    },
+    {
+        "label": "inch",
+        "importPath": "reportlab.lib.units",
+        "description": "reportlab.lib.units",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.units",
+        "documentation": {}
+    },
+    {
+        "label": "inch",
+        "importPath": "reportlab.lib.units",
+        "description": "reportlab.lib.units",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.units",
+        "documentation": {}
+    },
+    {
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "blog.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "blog.validators",
+        "description": "blog.validators",
+        "detail": "blog.validators",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "ModelForm",
+        "importPath": "django.forms",
+        "description": "django.forms",
+        "isExtraImport": true,
+        "detail": "django.forms",
+        "documentation": {}
+    },
+    {
+        "label": "article",
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "isExtraImport": true,
+        "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_article",
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "isExtraImport": true,
+        "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "slugify",
+        "importPath": "django.utils.text",
+        "description": "django.utils.text",
+        "isExtraImport": true,
+        "detail": "django.utils.text",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "enseignement.validators",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "enseignement.validators",
+        "description": "enseignement.validators",
+        "detail": "enseignement.validators",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Niveau",
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "isExtraImport": true,
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "courses",
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "isExtraImport": true,
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_course",
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "isExtraImport": true,
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "enseignant",
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "isExtraImport": true,
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_enseignant",
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "isExtraImport": true,
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbillard.migrations.0001_initial",
+        "description": "barbillard.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='TB_Article',\n            fields=[\n                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "barbillard.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbillard.migrations.0002_auto_20220214_1550",
+        "description": "barbillard.migrations.0002_auto_20220214_1550",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbillard', '0001_initial'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='tb_comment',\n            name='article',\n        ),\n        migrations.DeleteModel(",
+        "detail": "barbillard.migrations.0002_auto_20220214_1550",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "barbillard.migrations.0003_auto_20220214_1701",
+        "description": "barbillard.migrations.0003_auto_20220214_1701",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('barbillard', '0002_auto_20220214_1550'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='tb_etudiant',\n            name='Niveau',\n        ),\n        migrations.RemoveField(",
+        "detail": "barbillard.migrations.0003_auto_20220214_1701",
+        "documentation": {}
+    },
+    {
+        "label": "BarbillardConfig",
+        "kind": 6,
+        "importPath": "barbillard.apps",
+        "description": "barbillard.apps",
+        "peekOfCode": "class BarbillardConfig(AppConfig):\n    name = 'barbillard'",
+        "detail": "barbillard.apps",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Niveau",
+        "kind": 6,
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "peekOfCode": "class TB_Niveau(models.Model):\n    NIVEAU_CHOICES = (\n        ('INFOL1', _('LICENCE I')),\n        ('INFOL2', _('LICENCE II')),\n        ('INFOL3', _('LICENCE III')),\n        ('INFOM1', _('MASTER I')),\n        ('INFOM2', _('MASTER II')),\n        ('ICT4DL1', _('LICENCE PRO I')),\n        ('ICT4DL2', _('LICENCE PRO II')),\n        ('ICT4DL3', _('LICENCE PRO III')),",
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Information",
+        "kind": 6,
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "peekOfCode": "class TB_Information(models.Model):\n    title = models.CharField(max_length=255, verbose_name=_(\"Titre\"))\n    slug = models.SlugField(max_length=255, verbose_name=_(\"Slug\"), help_text=_(\"Ne pas modifier ce champ !!!\"))\n    body = RichTextField(verbose_name=_(\"Contenu\"))\n    created_at = models.DateTimeField(auto_now_add=True, editable=False)\n    update_at = models.DateTimeField(auto_now=True, editable=False)\n    urgent = models.BooleanField(default=False, verbose_name=_(\"Urgent ?\"))\n    public = models.BooleanField(default=True, verbose_name=_(\"Information publique ?\"))\n    Niveau = models.ForeignKey(TB_Niveau, verbose_name=_(\"Niveau concerné\"), on_delete=models.CASCADE, null=True, blank=True)\n    piecejointe = models.FileField(upload_to='PDF/Infos/',",
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Event",
+        "kind": 6,
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "peekOfCode": "class TB_Event(models.Model):\n    title = models.CharField(max_length=255)\n    slug = models.SlugField(max_length=255, null=True, blank=True, editable=False)\n    description = RichTextField()\n    speakers = models.ManyToManyField(\"barbillard.TB_Speaker\", db_table=\"Presentation\")\n    created_at = models.DateTimeField(auto_now_add=True, editable=False)\n    update_at = models.DateTimeField(auto_now=True, editable=False)\n    lien = models.URLField(max_length=2000, null=True, blank=True)\n    piecejointe = models.FileField(upload_to='PDF/Events/',\n        verbose_name=\"Pièce Jointe (Document)\",",
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Speaker",
+        "kind": 6,
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "peekOfCode": "class TB_Speaker(models.Model):\n    TITRE_CHOICES = (\n        ('Mr.', 'Monsieur'),\n        ('Mme.', 'Madame'),\n        ('Ing.', 'Ingénieur'),\n        ('Dr.', 'Docteur'),\n        ('Pr.', 'Professeur')\n    )\n    titre = models.CharField(max_length=255, choices=TITRE_CHOICES, verbose_name=\"Titre\", default='Dr.')\n    first_name = models.CharField(max_length=255, verbose_name=\"Prénom\")",
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Partenaire",
+        "kind": 6,
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "peekOfCode": "class TB_Partenaire(models.Model):\n    logo = models.ImageField(upload_to='Images/partenaires/', height_field=None, width_field=None, max_length=255)\n    title = models.CharField(max_length=255)\n    description = RichTextField()\n    site_url = models.URLField(max_length=250, null=True, blank=True, verbose_name=_(\"Lien vers la plate forme\"))\n    active = models.BooleanField(default=True, verbose_name=_(\"Activer un partenaire\"))\n    def __str__(self):\n        return self.title\n    class Meta:\n       verbose_name = _('TB_Partenaire')",
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "slug_generator",
+        "kind": 2,
+        "importPath": "barbillard.models",
+        "description": "barbillard.models",
+        "peekOfCode": "def slug_generator(sender, instance, *args, **kwargs):\n    if not instance.slug:\n        instance.slug = unique_slug_generator(instance)\npre_save.connect(slug_generator, sender = TB_Event)\nclass TB_Partenaire(models.Model):\n    logo = models.ImageField(upload_to='Images/partenaires/', height_field=None, width_field=None, max_length=255)\n    title = models.CharField(max_length=255)\n    description = RichTextField()\n    site_url = models.URLField(max_length=250, null=True, blank=True, verbose_name=_(\"Lien vers la plate forme\"))\n    active = models.BooleanField(default=True, verbose_name=_(\"Activer un partenaire\"))",
+        "detail": "barbillard.models",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "barbillard.urls",
+        "description": "barbillard.urls",
+        "peekOfCode": "app_name = 'barbillard'\nurlpatterns = [\n    path('barbillard/', info, name = \"info\"),\n    path('barbillard/<slug:slug_text>/', detail_info, name = \"detail_info\"),\n    path('barbillard_pdf', barbillard_pdf, name = \"barbillard_pdf\"),\n    path('presentation-departement-informatique/', presentation, name = \"presentation\"),\n    path('programme/licence-informatique/', licence, name = \"licence\"),\n    path('nos-domaines/', domaines, name = \"domaines\"),\n    path('contact/', contact_page, name = \"contact\"),\n    path('coordonnees/', coordonnees, name = \"coordonnees\"),",
+        "detail": "barbillard.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "barbillard.urls",
+        "description": "barbillard.urls",
+        "peekOfCode": "urlpatterns = [\n    path('barbillard/', info, name = \"info\"),\n    path('barbillard/<slug:slug_text>/', detail_info, name = \"detail_info\"),\n    path('barbillard_pdf', barbillard_pdf, name = \"barbillard_pdf\"),\n    path('presentation-departement-informatique/', presentation, name = \"presentation\"),\n    path('programme/licence-informatique/', licence, name = \"licence\"),\n    path('nos-domaines/', domaines, name = \"domaines\"),\n    path('contact/', contact_page, name = \"contact\"),\n    path('coordonnees/', coordonnees, name = \"coordonnees\"),\n    path('partenaire/', partenaire, name = \"partenaire\"),",
+        "detail": "barbillard.urls",
+        "documentation": {}
+    },
+    {
+        "label": "validate_file_extension",
+        "kind": 2,
+        "importPath": "barbillard.validators",
+        "description": "barbillard.validators",
+        "peekOfCode": "def validate_file_extension(value):\n    import os\n    from django.core.exceptions import ValidationError\n    ext = os.path.splitext(value.name)[1]  # [0] returns path+filename\n    valid_extensions = ['.pdf', '.doc', '.docx', '.xlsx', '.xls']\n    if not ext.lower() in valid_extensions:\n        raise ValidationError(_('Extention de fichier non supportée.'))",
+        "detail": "barbillard.validators",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def home(request):\n    list_poles = TB_Pole.objects.all().order_by('-id')[:4]\n    list_courses = TB_Ue.objects.all().order_by('-id')[:3]\n    list_events = TB_Event.objects.all().order_by('date')[:3]\n    list_teachers = TB_Enseignant.objects.all().order_by('id')[:6]\n    list_articles = TB_Article.objects.all().order_by('-created_at')[:3]\n    context = {\n        \"liste_poles\": list_poles,\n        \"liste_cours\": list_courses,\n        \"liste_evenements\": list_events,",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "info",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def info(request):\n    search_info = request.GET.get('searched')\n    context = {}\n    if search_info:\n        list_infos = TB_Information.objects.filter(Q(title__icontains = search_info, published = True))\n    else:\n        list_infos = TB_Information.objects.filter(Q(published = True))\n    page = request.GET.get('page', 1)\n    paginator = Paginator(list_infos, 10)\n    try:",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_info",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def detail_info(request, slug_text):\n    try:\n        info = TB_Information.objects.get(Q(slug = slug_text, published = True))\n    except TB_Information.DoesNotExist:\n        raise Http404(_('Cet information n\\' existe pas!!'))\n    # category = info.category\n    # info_en_relation = Information.objects.filter(category = category)\n    return render(request, \"barbillard/detail_info.html\", {\"info\": info})\ndef barbillard_pdf(request):\n    # Create Bystream buffer",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "barbillard_pdf",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def barbillard_pdf(request):\n    # Create Bystream buffer\n    buf = io.BytesIO()\n    # Create a canvas\n    c = canvas.Canvas(buf, pagesize = letter, bottomup = 0)\n    # Create a text object\n    textob = c.beginText()\n    textob.setTextOrigin(inch, inch)\n    textob.setFont(\"Helvetica\", 14)\n    # Add somelines of text",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "presentation",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def presentation(request):\n    return render(request, 'barbillard/about.html')\ndef licence(request):\n    return render(request, 'barbillard/licence.html')\ndef programme(request):\n    return render(request, 'barbillard/programme.html')\ndef master(request):\n    return render(request, 'barbillard/master.html')\ndef doctorat(request):\n    return render(request, 'barbillard/doctorat.html')",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "licence",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def licence(request):\n    return render(request, 'barbillard/licence.html')\ndef programme(request):\n    return render(request, 'barbillard/programme.html')\ndef master(request):\n    return render(request, 'barbillard/master.html')\ndef doctorat(request):\n    return render(request, 'barbillard/doctorat.html')\ndef domaines(request):\n    list_domains = Pole.objects.all()",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "programme",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def programme(request):\n    return render(request, 'barbillard/programme.html')\ndef master(request):\n    return render(request, 'barbillard/master.html')\ndef doctorat(request):\n    return render(request, 'barbillard/doctorat.html')\ndef domaines(request):\n    list_domains = Pole.objects.all()\n    context = {\"liste_domaines\": list_domains}\n    return render(request, 'barbillard/domains.html', context)",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "master",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def master(request):\n    return render(request, 'barbillard/master.html')\ndef doctorat(request):\n    return render(request, 'barbillard/doctorat.html')\ndef domaines(request):\n    list_domains = Pole.objects.all()\n    context = {\"liste_domaines\": list_domains}\n    return render(request, 'barbillard/domains.html', context)\ndef coordonnees(request):\n    return render(request, 'barbillard/coordonnee.html')",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "doctorat",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def doctorat(request):\n    return render(request, 'barbillard/doctorat.html')\ndef domaines(request):\n    list_domains = Pole.objects.all()\n    context = {\"liste_domaines\": list_domains}\n    return render(request, 'barbillard/domains.html', context)\ndef coordonnees(request):\n    return render(request, 'barbillard/coordonnee.html')\ndef contact_page(request):\n    return render(request, 'barbillard/contact.html')",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "domaines",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def domaines(request):\n    list_domains = Pole.objects.all()\n    context = {\"liste_domaines\": list_domains}\n    return render(request, 'barbillard/domains.html', context)\ndef coordonnees(request):\n    return render(request, 'barbillard/coordonnee.html')\ndef contact_page(request):\n    return render(request, 'barbillard/contact.html')\ndef gdsc(request):\n    return render(request, \"barbillard/gdsc.html\", {})",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "coordonnees",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def coordonnees(request):\n    return render(request, 'barbillard/coordonnee.html')\ndef contact_page(request):\n    return render(request, 'barbillard/contact.html')\ndef gdsc(request):\n    return render(request, \"barbillard/gdsc.html\", {})\ndef comsas(request):\n    return render(request, \"barbillard/comsas.html\", {})\ndef partenaire(request):\n    partenaires = Partenaire.objects.all()",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "contact_page",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def contact_page(request):\n    return render(request, 'barbillard/contact.html')\ndef gdsc(request):\n    return render(request, \"barbillard/gdsc.html\", {})\ndef comsas(request):\n    return render(request, \"barbillard/comsas.html\", {})\ndef partenaire(request):\n    partenaires = Partenaire.objects.all()\n    context = {'partenaires':partenaires}\n    return render(request, \"barbillard/partenaire.html\", context)",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "gdsc",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def gdsc(request):\n    return render(request, \"barbillard/gdsc.html\", {})\ndef comsas(request):\n    return render(request, \"barbillard/comsas.html\", {})\ndef partenaire(request):\n    partenaires = Partenaire.objects.all()\n    context = {'partenaires':partenaires}\n    return render(request, \"barbillard/partenaire.html\", context)",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "comsas",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def comsas(request):\n    return render(request, \"barbillard/comsas.html\", {})\ndef partenaire(request):\n    partenaires = Partenaire.objects.all()\n    context = {'partenaires':partenaires}\n    return render(request, \"barbillard/partenaire.html\", context)\n# def courses(request):\n#     search_course = request.GET.get('searched')",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "partenaire",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def partenaire(request):\n    partenaires = Partenaire.objects.all()\n    context = {'partenaires':partenaires}\n    return render(request, \"barbillard/partenaire.html\", context)\n# def courses(request):\n#     search_course = request.GET.get('searched')\n#     context = {}\n#     if search_course:\n#         list_courses = Ue.objects.filter(Q(title__icontains = search_course)).order_by('code')",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "event",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def event(request):\n    search_evenement = request.GET.get('searched')\n    context = {}\n    if search_evenement:\n        list_evenements = TB_Event.objects.filter(Q(title__icontains = search_evenement)).order_by('date')\n    else:\n        list_evenements = TB_Event.objects.all().order_by('date')\n    page = request.GET.get('page', 1)\n    paginator = Paginator(list_evenements, 10)\n    try:",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_event",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def detail_event(request, slug_text):\n    try:\n        event = TB_Event.objects.get(slug = slug_text)\n    except Article.DoesNotExist:\n        raise Http404('Cet évènement n\\' existe pas!!')\n    event_en_relation = Event.objects.all().order_by('date')[:4]\n    return render(request, \"barbillard/detail_event.html\", {\"event\": event, \"eer\": event_en_relation})\ndef event_pdf(request):\n    response = HttpResponse(content_type='application/pdf')\n    response['Content-Disposition'] = 'attachment; filename=\"event.pdf\"'",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "event_pdf",
+        "kind": 2,
+        "importPath": "barbillard.views",
+        "description": "barbillard.views",
+        "peekOfCode": "def event_pdf(request):\n    response = HttpResponse(content_type='application/pdf')\n    response['Content-Disposition'] = 'attachment; filename=\"event.pdf\"'\n    buffer = BytesIO()\n    # Create the PDF object, using the BytesIO object as its \"file.\"\n    p = canvas.Canvas(buffer)\n    # Draw things on the PDF. Here's where the PDF generation happens.\n    # See the ReportLab documentation for the full list of functionality.\n    p.drawString(title)\n    p.drawString(description)",
+        "detail": "barbillard.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blog.migrations.0001_initial",
+        "description": "blog.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='TB_Article',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "blog.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "TB_ArticleAdmin",
+        "kind": 6,
+        "importPath": "blog.admin",
+        "description": "blog.admin",
+        "peekOfCode": "class TB_ArticleAdmin(admin.ModelAdmin):\n    list_display = ('title', 'created_at', 'image', 'user',)\n    ordering = ('created_at',)\n    list_filter = ('created_at', 'user',)\n    search_fields = ('title', 'body',)\n    prepopulated_fields = {'slug': ('title',)}\n    def save_model(self, request, obj, form, change):\n        obj.user = request.user\n        obj.save()\n@admin.register(TB_Comment)",
+        "detail": "blog.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TB_CommentAdmin",
+        "kind": 6,
+        "importPath": "blog.admin",
+        "description": "blog.admin",
+        "peekOfCode": "class TB_CommentAdmin(admin.ModelAdmin):\n    list_display = ('article', 'date_added', 'name', 'email', 'active',)\n    ordering = ('-date_added',)\n    list_filter = ('article', 'active',)\n    search_fields = ('contain',)",
+        "detail": "blog.admin",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.site_header",
+        "kind": 5,
+        "importPath": "blog.admin",
+        "description": "blog.admin",
+        "peekOfCode": "admin.site.site_header = \"Site Web du Département informatique UY1\"\n@admin.register(TB_Article)\nclass TB_ArticleAdmin(admin.ModelAdmin):\n    list_display = ('title', 'created_at', 'image', 'user',)\n    ordering = ('created_at',)\n    list_filter = ('created_at', 'user',)\n    search_fields = ('title', 'body',)\n    prepopulated_fields = {'slug': ('title',)}\n    def save_model(self, request, obj, form, change):\n        obj.user = request.user",
+        "detail": "blog.admin",
+        "documentation": {}
+    },
+    {
+        "label": "BlogConfig",
+        "kind": 6,
+        "importPath": "blog.apps",
+        "description": "blog.apps",
+        "peekOfCode": "class BlogConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'blog'",
+        "detail": "blog.apps",
+        "documentation": {}
+    },
+    {
+        "label": "CommentForm",
+        "kind": 6,
+        "importPath": "blog.forms",
+        "description": "blog.forms",
+        "peekOfCode": "class CommentForm(forms.ModelForm):\n    class Meta:\n        model = TB_Comment\n        fields = ['name', 'email', 'contain']",
+        "detail": "blog.forms",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Article",
+        "kind": 6,
+        "importPath": "blog.models",
+        "description": "blog.models",
+        "peekOfCode": "class TB_Article(models.Model):\n    title = models.CharField(max_length=255)\n    slug = models.SlugField(max_length=255, null=True, blank=True, help_text=_(\"Ne pas modifier ce champ !!!\"))\n    body = RichTextField()\n    created_at = models.DateTimeField(auto_now_add=True, editable=False)\n    update_at = models.DateTimeField(auto_now=True, editable=False)\n    image = models.ImageField(upload_to='Images/Blog/', height_field=None, width_field=None, max_length=255)\n    # category = models.CharField(max_length=255)\n    piecejointe = models.FileField(upload_to='PDF/Events/',\n        verbose_name=\"Pièce Jointe (Document)\",",
+        "detail": "blog.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Comment",
+        "kind": 6,
+        "importPath": "blog.models",
+        "description": "blog.models",
+        "peekOfCode": "class TB_Comment(models.Model):\n    article = models.ForeignKey(TB_Article, on_delete=models.CASCADE, related_name=\"comments\")\n    # user = models.ForeignKey(User, on_delete=models.CASCADE)\n    name = models.CharField(max_length=80)\n    email = models.EmailField()\n    contain = RichTextField()\n    date_added = models.DateTimeField(auto_now_add=True, editable=False)\n    active = models.BooleanField(default=False)\n    def __str__(self):\n        return \"Comment {} by {}\".format(self.contain, self.name)",
+        "detail": "blog.models",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "blog.urls",
+        "description": "blog.urls",
+        "peekOfCode": "app_name = 'blog'\nurlpatterns = [\n    path('blog/', article, name = \"article\"),\n    path('blog/article/<slug:slug_text>/', detail_article, name = \"detail_article\"),\n]",
+        "detail": "blog.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "blog.urls",
+        "description": "blog.urls",
+        "peekOfCode": "urlpatterns = [\n    path('blog/', article, name = \"article\"),\n    path('blog/article/<slug:slug_text>/', detail_article, name = \"detail_article\"),\n]",
+        "detail": "blog.urls",
+        "documentation": {}
+    },
+    {
+        "label": "validate_file_extension",
+        "kind": 2,
+        "importPath": "blog.validators",
+        "description": "blog.validators",
+        "peekOfCode": "def validate_file_extension(value):\n    import os\n    from django.core.exceptions import ValidationError\n    ext = os.path.splitext(value.name)[1]  # [0] returns path+filename\n    valid_extensions = ['.pdf', '.doc', '.docx', '.xlsx', '.xls']\n    if not ext.lower() in valid_extensions:\n        raise ValidationError('Extention de fichier non supportée.')",
+        "detail": "blog.validators",
+        "documentation": {}
+    },
+    {
+        "label": "article",
+        "kind": 2,
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "peekOfCode": "def article(request):\n    search_article = request.GET.get('searched')\n    context = {}\n    if search_article:\n        list_articles = TB_Article.objects.filter(Q(title__icontains = search_article)).order_by('-created_at')\n    else:\n        list_articles = TB_Article.objects.all().order_by('-created_at')\n    page = request.GET.get('page', 1)\n    paginator = Paginator(list_articles, 10)\n    try:",
+        "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_article",
+        "kind": 2,
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "peekOfCode": "def detail_article(request, slug_text):\n    try:\n        article = TB_Article.objects.get(slug = slug_text)\n    except Article.DoesNotExist:\n        raise Http404('Cet article n\\' existe pas!!')\n    # category = article.category\n    # articles_en_relation = Article.objects.filter(category = category)[:3]\n    autres = TB_Article.objects.all().order_by('-created_at')[:4]\n    comments = article.comments.filter(active=True).order_by(\"-date_added\")\n    new_comment = None",
+        "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = ')+g)=f8e7e(osei*caka0__5ea-f(n)9=df)@@es!jv(2wik$h'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "SECRET_KEY = ')+g)=f8e7e(osei*caka0__5ea-f(n)9=df)@@es!jv(2wik$h'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #new",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #new\n    'barbillard',\n    'blog',",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'deptinfo.urls'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "ROOT_URLCONF = 'deptinfo.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'deptinfo.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/2.0/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n    }\n}\n# Password validation",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_L10N",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "deptinfo.settings",
+        "description": "deptinfo.settings",
+        "peekOfCode": "STATIC_URL = '/static/'",
+        "detail": "deptinfo.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "deptinfo.urls",
+        "description": "deptinfo.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('barbillard/', include(\"barbillard.urls\")),\n    path('blog/', include(\"blog.urls\")),\n    path('enseignement/', include(\"enseignement.urls\")),\n    path('', home, name='home'),\n]",
+        "detail": "deptinfo.urls",
+        "documentation": {}
+    },
+    {
+        "label": "random_string_generator",
+        "kind": 2,
+        "importPath": "deptinfo.utils",
+        "description": "deptinfo.utils",
+        "peekOfCode": "def random_string_generator(size = 10, chars = string.ascii_lowercase + string.digits):\n    return ''.join(random.choice(chars) for _ in range(size))\ndef unique_slug_generator(instance, new_slug = None):\n    if new_slug is not None:\n        slug = new_slug\n    else:\n        slug = slugify(instance.title)\n    Klass = instance.__class__\n    qs_exists = Klass.objects.filter(slug = slug).exists()\n    if qs_exists:",
+        "detail": "deptinfo.utils",
+        "documentation": {}
+    },
+    {
+        "label": "unique_slug_generator",
+        "kind": 2,
+        "importPath": "deptinfo.utils",
+        "description": "deptinfo.utils",
+        "peekOfCode": "def unique_slug_generator(instance, new_slug = None):\n    if new_slug is not None:\n        slug = new_slug\n    else:\n        slug = slugify(instance.title)\n    Klass = instance.__class__\n    qs_exists = Klass.objects.filter(slug = slug).exists()\n    if qs_exists:\n        new_slug = \"{slug}-{randstr}\".format(slug = slug, randstr = random_string_generator(size = 4))\n        return unique_slug_generator(instance, new_slug = new_slug)",
+        "detail": "deptinfo.utils",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "deptinfo.wsgi",
+        "description": "deptinfo.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "deptinfo.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "enseignement.migrations.0001_initial",
+        "description": "enseignement.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('barbillard', '0003_auto_20220214_1701'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='TB_Pole',\n            fields=[",
+        "detail": "enseignement.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "TB_EtudiantAdmin",
+        "kind": 6,
+        "importPath": "enseignement.admin",
+        "description": "enseignement.admin",
+        "peekOfCode": "class TB_EtudiantAdmin(admin.ModelAdmin):\n    list_display = ('matricule', 'first_name', 'last_name', 'email', 'Niveau', 'actif', 'user',)\n    ordering = ('matricule',)\n    list_filter = ('Niveau',)\n    search_fields = ('matricule', 'first_name', 'last_name', 'email',)\n@admin.register(TB_Ue)\nclass TB_UeAdmin(admin.ModelAdmin):\n    list_display = ('code', 'title', 'semester', 'domaine', 'Niveau',)\n    ordering = ('-code',)\n    list_filter = ('semester', 'domaine', 'Niveau',)",
+        "detail": "enseignement.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TB_UeAdmin",
+        "kind": 6,
+        "importPath": "enseignement.admin",
+        "description": "enseignement.admin",
+        "peekOfCode": "class TB_UeAdmin(admin.ModelAdmin):\n    list_display = ('code', 'title', 'semester', 'domaine', 'Niveau',)\n    ordering = ('-code',)\n    list_filter = ('semester', 'domaine', 'Niveau',)\n    search_fields = ('code', 'title',)\n@admin.register(TB_Enseignant)\nclass TB_EnseignantAdmin(admin.ModelAdmin):\n    list_display = ('first_name', 'last_name', 'email', 'grade', 'jury', 'actif', 'user',)\n    ordering = ('first_name',)\n    list_filter = ('pole', 'jury', 'actif',)",
+        "detail": "enseignement.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TB_EnseignantAdmin",
+        "kind": 6,
+        "importPath": "enseignement.admin",
+        "description": "enseignement.admin",
+        "peekOfCode": "class TB_EnseignantAdmin(admin.ModelAdmin):\n    list_display = ('first_name', 'last_name', 'email', 'grade', 'jury', 'actif', 'user',)\n    ordering = ('first_name',)\n    list_filter = ('pole', 'jury', 'actif',)\n    search_fields = ('first_name', 'last_name', 'email',)",
+        "detail": "enseignement.admin",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.site_header",
+        "kind": 5,
+        "importPath": "enseignement.admin",
+        "description": "enseignement.admin",
+        "peekOfCode": "admin.site.site_header = \"Site Web du Département informatique UY1\"\nadmin.site.register(TB_Pole)\n# @admin.register(Niveau)\n# class NiveauAdmin(admin.ModelAdmin):\n#     list_display = ('level', 'diffusion',)\n#     ordering = ('level',)\n#     search_fields = ('level',)\n@admin.register(TB_Etudiant)\nclass TB_EtudiantAdmin(admin.ModelAdmin):\n    list_display = ('matricule', 'first_name', 'last_name', 'email', 'Niveau', 'actif', 'user',)",
+        "detail": "enseignement.admin",
+        "documentation": {}
+    },
+    {
+        "label": "EnseignementConfig",
+        "kind": 6,
+        "importPath": "enseignement.apps",
+        "description": "enseignement.apps",
+        "peekOfCode": "class EnseignementConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'enseignement'",
+        "detail": "enseignement.apps",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Ue",
+        "kind": 6,
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "peekOfCode": "class TB_Ue(models.Model):\n    DOMAINE_CHOICES = (\n        ('FONDA', 'Fondamentale'),\n        ('SECU', 'Sécurité'),\n        ('RESEAUX', 'Réseaux'),\n        ('SI/GL', 'SI/GL'),\n        ('DS', 'Sciences de Données'),\n    )\n    SEMESTER_CHOICES = (\n        ('SEM1', 'Semestre 1'),",
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Pole",
+        "kind": 6,
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "peekOfCode": "class TB_Pole(models.Model):\n    image = models.ImageField(upload_to='Images/Domaines/', height_field=None, width_field=None, max_length=255, default=\"Images/Domaines/a.jpg\")\n    title = models.CharField(max_length=255)\n    slug = models.SlugField(max_length=255, verbose_name=_(\"Slug\"), help_text=_(\"Ne pas modifier ce champ !!!\"))\n    description = RichTextField()\n    def __str__(self):\n        return self.title\n    class Meta: \n        ordering = ('title',)\n        verbose_name = _('TB_Pole')",
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Etudiant",
+        "kind": 6,
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "peekOfCode": "class TB_Etudiant(models.Model):\n    matricule = models.CharField(max_length=7, primary_key=True)\n    first_name = models.CharField(max_length = 255)\n    last_name = models.CharField(max_length = 255)\n    email = models.EmailField(max_length=250, unique=True)\n    telephone = models.CharField(max_length = 20, null=True, blank=True)\n    actif = models.BooleanField(default=False)\n    Niveau = models.ForeignKey(TB_Niveau, on_delete=models.CASCADE)\n    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)\n    photo= models.ImageField(upload_to='Images/Etudiants/', default=\"Images/Etudiants/un.jpg\", height_field=None, width_field=None, max_length=255, null=True, blank=True)",
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "TB_Enseignant",
+        "kind": 6,
+        "importPath": "enseignement.models",
+        "description": "enseignement.models",
+        "peekOfCode": "class TB_Enseignant(models.Model):\n    GRADE_CHOICES = (\n        ('VAC', 'Vacataire'),\n        ('ASSISTANT', 'Assistant'),\n        ('CC', 'Chargé(e) de Cours'),\n        ('MC', 'Maître de conférences'),\n        ('PR', 'Professeur')\n    )\n    SEXE_CHOICES = (\n        ('M', 'Masculin'),",
+        "detail": "enseignement.models",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "enseignement.urls",
+        "description": "enseignement.urls",
+        "peekOfCode": "app_name = \"enseignement\"\nurlpatterns = [\n    path('cours/', courses, name = \"courses\"),\n    path('cours/<slug:slug_text>/', detail_course, name = \"detail_course\"),\n    path('nos-enseignants/', enseignant, name = \"enseignant\"),\n    path('enseignant/<slug:slug_text>/', detail_enseignant, name = \"detail_enseignant\"),\n]",
+        "detail": "enseignement.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "enseignement.urls",
+        "description": "enseignement.urls",
+        "peekOfCode": "urlpatterns = [\n    path('cours/', courses, name = \"courses\"),\n    path('cours/<slug:slug_text>/', detail_course, name = \"detail_course\"),\n    path('nos-enseignants/', enseignant, name = \"enseignant\"),\n    path('enseignant/<slug:slug_text>/', detail_enseignant, name = \"detail_enseignant\"),\n]",
+        "detail": "enseignement.urls",
+        "documentation": {}
+    },
+    {
+        "label": "validate_file_extension",
+        "kind": 2,
+        "importPath": "enseignement.validators",
+        "description": "enseignement.validators",
+        "peekOfCode": "def validate_file_extension(value):\n    import os\n    from django.core.exceptions import ValidationError\n    ext = os.path.splitext(value.name)[1]  # [0] returns path+filename\n    valid_extensions = ['.pdf', '.doc', '.docx', '.xlsx', '.xls']\n    if not ext.lower() in valid_extensions:\n        raise ValidationError(_('Extention de fichier non supportée.'))",
+        "detail": "enseignement.validators",
+        "documentation": {}
+    },
+    {
+        "label": "courses",
+        "kind": 2,
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "peekOfCode": "def courses(request):\n    search_course = request.GET.get('searched')\n    context = {}\n    if search_course:\n        list_courses = Ue.objects.filter(Q(title__icontains = search_course)).order_by('code')\n    else:\n        list_courses = Ue.objects.all().order_by('code')\n    page = request.GET.get('page', 1)\n    paginator = Paginator(list_courses, 10)\n    try:",
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_course",
+        "kind": 2,
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "peekOfCode": "def detail_course(request, slug_text):\n    try:\n        course = Ue.objects.get(slug = slug_text)\n    except Ue.DoesNotExist:\n        raise Http404('Ce cours n\\' existe pas!!')\n    enseignants = Enseignant.objects.filter(ue = course)\n    niveau = course.Niveau\n    cours_en_relation = Ue.objects.filter(Niveau = niveau)[:4]\n    return render(request, \"enseigner/detail_cours.html\", {\"cours\": course, \"enseignants\": enseignants, \"cer\": cours_en_relation})\ndef enseignant(request):",
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "enseignant",
+        "kind": 2,
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "peekOfCode": "def enseignant(request):\n    list_enseignants = Enseignant.objects.all()\n    p = Paginator(list_enseignants, 6)\n    page_num = request.GET.get('page', 1)\n    try:\n        page = p.page(page_num)\n    except EmptyPage:\n        page = p.page(1)\n    context = {\"liste_enseignants\": list_enseignants}\n    return render(request, \"enseigner/enseignant.html\", context)",
+        "detail": "enseignement.views",
+        "documentation": {}
+    },
+    {
+        "label": "detail_enseignant",
+        "kind": 2,
+        "importPath": "enseignement.views",
+        "description": "enseignement.views",
+        "peekOfCode": "def detail_enseignant(request, slug_text):\n    try:\n        # text = slug_text.replace(\"-\", \" \")\n        ens = Enseignant.objects.get(slug = slug_text)\n    except Enseignant.DoesNotExist:\n        raise Http404('Cet enseignant n\\' existe pas!!')\n    return render(request, \"enseigner/detail_enseignant.html\", {\"ens\": ens})",
+        "detail": "enseignement.views",
+        "documentation": {}
+    }
+]

@@ -1,0 +1,136 @@
+{% extends 'information/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>Doctorat d'Informatique | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description"
+    content="Programme d’enseignements en Doctorat Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Doctorat">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Doctorat d'Informatique | Département d'Informatique">
+<meta property="og:description"
+    content="Programme d’enseignements en Doctorat Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'information/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'information/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary"
+                            href="{% url 'programme' %}"> {% trans "Programme" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted"> {% trans "Doctorat d'Informatique" %}</li>
+                </ul>
+                <p class="text-lighten"> {% trans "Programme d’enseignements en Doctorat Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+    <div class="container">
+        <!-- program info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-6 order-1 col-sm-6 mb-4 mb-xl-0">
+                <h2> {% trans "Doctorat d'Informatique" %}</h2>
+            </div>
+            <div class="col-xl-3 order-sm-3 order-xl-2 col-12 order-2">
+                <ul class="list-inline text-xl-left">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-book text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "DUREE" %}</h6>
+                                <p class="mb-0"> {% trans "03 Ans" %}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">DURATION</h6>
+                                <p class="mb-0">03 Hours</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-wallet text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">FEE</h6>
+                                <p class="mb-0">From: $699</p>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-xl-3 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+                <a href="#" download="Grille Doctorat Informatique" class="btn btn-primary"> {% trans "Télécharger" %}</a>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+        <!-- program details -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3> {% trans "Objectifs de la Formation" %}</h3>
+                <p>
+                    <i>Comming Soon...</i>
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3 class="mb-3"> {% trans "Organisation de la Formation" %}</h3>
+                <p>
+                    <i>Comming Soon...</i>
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3> {% trans "Conditions d'Accès" %}</h3>
+                <p>
+                    <i>Comming Soon...</i>
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3> {% trans "Débouchés" %}</h3>
+                <p>
+                    <i>Comming Soon...</i>
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <a href="#" download="Grille Licence Informatique" class="btn btn-primary">
+                    {% trans "Télécharger la Grille des enseignements" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->
+
+{% endblock content %}

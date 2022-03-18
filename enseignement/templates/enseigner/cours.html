@@ -1,0 +1,135 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>Nos Cours et Syllabus | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Nos Cours et Syllabus">
+<meta name="keywords"
+    content="Département, Informatique, Université, Yaoundé, enseignements, cours, UE, syllabus, INF, INFO">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Nos Cours et Syllabus | Département d'Informatique">
+<meta property="og:description" content="Nos Cours et Syllabus">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'enseignement/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block stylepage %}
+
+{% endblock stylepage %}
+
+{% block nav %}
+{% with titre="courses"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'enseignement/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#">{% trans "Cours" %}</a>
+                    </li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">
+                    {% trans "Retrouvez ici nos cours et syllabus dispensés au Département d'Informatique de l’Université de Yaoundé I." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="section-title">{% trans "Rechercher un cours" %}</h4>
+                <form action="" method="GET" class="row">
+                    <div class="col-12">
+                        <input type="text" {% if searched %} value="{{searched}}" {% endif %} class="form-control mb-3" id="searched" name="searched" placeholder='{% trans "Recherche..." %}'>
+                    </div>
+                </form>
+                {% if searched %}
+                    <p>{% trans "Résultat pour" %} <span class="text-primary">{{searched}}</span></p>
+                {% endif %}
+                <hr>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <!-- course item -->
+                    {% for c in liste_cours %}
+                    <div class="col-lg-4 col-sm-6 mb-5">
+                        <div class="card p-0 border-primary rounded-0 hover-shadow">
+                            <img class="card-img-top rounded-0" style="height: 288px;" src="{{c.image.url}}"
+                                alt="{{c.slug}}">
+                            <div class="card-body">
+                                <ul class="list-inline mb-2">
+                                    <li class="list-inline-item"><i
+                                            class="ti-calendar mr-1 text-color"></i>{{c.Niveau.get_level_display}}</li>
+                                    <li class="list-inline-item"><a class="text-color"
+                                            href="#">{{c.get_domaine_display}}</a></li>
+                                </ul>
+                                <a href="{% url 'detail_course' c.slug %}">
+                                    <h4 class="card-title">{{c.title}}</h4>
+                                </a>
+                                <p class="card-text mb-4">
+                                    {{c.body}}
+                                </p>
+                                <a href="{% url 'detail_course' c.slug %}" class="btn btn-primary btn-sm">{% trans "Voir le Syllabus" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% if liste_cours.has_other_pages %}
+        <nav>
+        <ul class="pagination justify-content-center">
+            {% if liste_cours.has_previous %}
+            <li><a class="page-link" href="?page={{ liste_cours.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+            {% for i in liste_cours.paginator.page_range %}
+            {% if liste_cours.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if liste_cours.has_next %}
+            <li><a class="page-link" href="?page={{ liste_cours.next_page_number }}">&raquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+        </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

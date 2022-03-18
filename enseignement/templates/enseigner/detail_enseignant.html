@@ -1,0 +1,156 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>{{ens.first_name}} {{ens.last_name}} | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="{{ens.first_name}} {{ens.last_name}}, enseignant Département d'Informatique UY1">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, article, blog">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ens.first_name}} {{ens.last_name}} | Département d'Informatique">
+<meta property="og:description" content="{{ens.first_name}} {{ens.last_name}}, enseignant Département d'Informatique UY1">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{ens.photo.url}}">
+<meta property="og:image:type" content="image/jpg" />
+<!-- <meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" /> -->
+<meta property="og:image:alt" content="{{cours.title}}" />
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary"
+                            href="{% url 'enseignant' %}"> {% trans "Corps Enseignants" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">{{ens.first_name}}
+                        {{ens.last_name}}</li>
+                </ul>
+                <p class="text-lighten"></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- teacher details -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-5">
+                <img class="img-fluid w-100" src="{{ens.photo.url}}" alt="teacher">
+            </div>
+            <div class="col-md-6 mb-5">
+                <h3>{{ens.titre}} {{ens.first_name}} {{ens.last_name}}</h3>
+                <h6 class="text-color">{{ens.get_grade_display}} / {% trans "Université de Yaoundé I." %}</h6>
+                <p class="mb-5">
+                    {% trans "Enseignant au Département d'Informatique, à la Faculté des Sciences de l'Université de Yaoundé I, Cameroun." %}
+                </p>
+                <div class="row">
+                    <div class="col-md-7 mb-5 mb-md-0">
+                        <h4 class="mb-4">CONTACTS :</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><a class="text-color" href="mailto:{{ens.email}}"><i
+                                        class="ti-email mr-2"></i>{{ens.email}}</a></li>
+                            {% if ens.telephone %}
+                            <li class="mb-3"><a class="text-color" href="callto:{{ens.telephone}}"><i
+                                        class="ti-mobile mr-2"></i>{{ens.telephone}}</a></li>
+                            {% endif %}
+                            {% if ens.facebook_url %}
+                            <li class="mb-3"><a class="text-color" target="_blank" href="{{ens.facebook_url}}"><i
+                                        class="ti-facebook mr-2"></i>{{ens.first_name}} {{ens.last_name}}</a></li>
+                            {% endif %}
+                            {% if ens.twitter_url %}
+                            <li class="mb-3"><a class="text-color" target="_blank" href="{{ens.twitter_url}}"><i
+                                        class="ti-twitter-alt mr-2"></i>{{ens.first_name}} {{ens.last_name}}</a></li>
+                            {% endif %}
+                            {% if ens.linkedin_url %}
+                            <li class="mb-3"><a class="text-color" target="_blank" href="{{ens.linkedin_url}}"><i
+                                        class="ti-linkedin mr-2"></i>{{ens.first_name}} {{ens.last_name}}</a></li>
+                            {% endif %}
+                            {% if ens.github_url %}
+                            <li class="mb-3"><a class="text-color" target="_blank" href="{{ens.github_url}}"><i
+                                        class="ti-github mr-2"></i>{{ens.first_name}} {{ens.last_name}}</a></li>
+                            {% endif %}
+                            {% if ens.site_url %}
+                            <li class="mb-3"><a class="text-color" target="_blank" href="{{ens.site_url}}"><i
+                                        class="ti-world mr-2"></i>{{ens.site_url}}</a></li>
+                            {% endif %}
+                            {% if ens.localisation %}
+                            <li class="mb-3"><a class="text-color"><i
+                                        class="ti-location-pin mr-2"></i>{{ens.localisation}}</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="mb-4" style="text-transform: uppercase;"> {% trans "DOMAINE" %}{{ ens.pole.all.count|pluralize }}
+                        </h4>
+                        <ul class="list-unstyled">
+                            {% for domaine in ens.pole.all %}
+                            <li class="mb-3">{{domaine.title}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% if ens.jury %}
+                            <h4 class="mt-4 mb-4 text-secondary"> {% trans "ADMINISTRATION :" %}</h4>
+                            <ul class="list-styled">
+                                <li class="mb-3"> {% trans "Président de Jury de" %} {{ens.jury.get_level_display}}</li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <h4 class="mb-4"> {% trans "BIOGRAPHIE" %}</h4>
+                <p class="mb-5">
+                    {{ens.biographie}}
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h4 class="mb-4"> {% trans "COURS" %}</h4>
+            </div>
+            <!-- course item -->
+            {% for cours in ens.ue.all %}
+            <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="card p-0 border-primary rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" style="height: 288px;" src="{{cours.image.url}}" alt="course thumb">
+                    <div class="card-body">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>{{cours.Niveau.get_level_display}}</li>
+                            <li class="list-inline-item"><a class="text-color" href="#">{{cours.get_domaine_display}}</a></li>
+                        </ul>
+                        <a href="{% url 'enseignement:detail_course' cours.slug %}">
+                            <h4 class="card-title">{{cours.title}}</h4>
+                        </a>
+                        <p class="card-text mb-4">
+                            {{cours.body}}
+                        </p>
+                        <a href="{% url 'enseignement:detail_course' cours.slug %}" class="btn btn-primary btn-sm"> {% trans "Voir le Syllabus" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- /teacher details -->
+
+{% endblock content %}

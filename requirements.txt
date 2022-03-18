@@ -1,0 +1,2 @@
+validator==0.18.2
+django==3.2.7

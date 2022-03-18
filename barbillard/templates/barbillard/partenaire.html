@@ -1,0 +1,213 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Partenaire | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Programme d’enseignements au Département d’Informatique
+de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Doctorat, Master, Licence, enseignements">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programme | Département d'Informatique">
+<meta property="og:description" content="Programme d’enseignements au Département d’Informatique">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+	{% with titre="programme"%}
+		{% include 'barbillard/_partials/navbar.html' %}
+	{% endwith %}
+{% endblock nav %}
+
+{% block stylepage %}
+	<style>
+		.formation-box{
+			cursor: pointer;
+		}
+		.formation-box:hover{
+			background-size: cover;
+			background-image: linear-gradient(to bottom, rgba(222,58,153,0.7), rgba(106,78,119,0.7)), url("{% static 'barbillard/images/cycle/licence.jpg' %}");
+		}
+		.formation-box:hover h4, .formation-box:hover p, .formation-box:hover .feature-icon{
+			color: white;
+		}
+	</style>
+{% endblock stylepage %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Partenaires" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten"> {% trans "Les partenaires au Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h2 class="section-title"> {% trans "Nos partenaires" %}</h2>
+			</div>
+        </div>
+    </div>
+</section>
+<section>
+	<div class="container">
+		{% for partenaire in partenaires %}
+			<div class="card mb-5">
+				<div class="row">
+					<div class="col-md-4">
+						<img style="width: 800px; height: 305px;" src="{{partenaire.logo.url}}" class="img-fluid rounded-start" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title"> {{ partenaire.title}} </h5>
+							<p class="card-text">
+								{{ partenaire.description|safe }}
+							</p>
+							<a href="{{partenaire.site_url}}" target="_blank"  class="btn btn-primary col-12"> {% trans "Visiter le Site" %} </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+		<!-- <div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px; height: 365px;" src="/Images/partenaires/AUF.png" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">AUF</h5>
+				<p class="card-text">
+					L’Agence Universitaire de la Francophonie (AUF) regroupe 1007 universités, grandes écoles, réseaux universitaires et centres de recherche scientifique utilisant la langue française dans 119 pays. Créée il y a 60 ans, elle est l’une des plus importantes associations d’établissements d’enseignement supérieur et de recherche au monde. Elle est également l’opérateur pour l’enseignement supérieur et la recherche du Sommet de la Francophonie. À ce titre, elle met en œuvre, dans son champ de compétences, les résolutions adoptées par la Conférence des chefs d’État et de gouvernement des pays ayant le français en partage.
+				</p>
+				<a href="https://www.auf.org/a-propos/qui-nous-sommes/" class="btn btn-primary col-12"> {% trans "Lire plus" %} </a>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px; height: 300px;" src="/Images/partenaires/ANTIC.jpeg" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">ANTIC</h5>
+				<p class="card-text">
+					L’ANTIC est un établissement public administratif doté de la personnalité juridique et de l’autonomie financière administrée par un Conseil d’Administration composé d’un Président et de 11 membres et, d’une Direction Générale sous l’autorité d’un Directeur Général assisté d’un Directeur Général Adjoint. Elle est placée sous la tutelle technique du Ministère des Postes et Télécommunications et sous la tutelle financière du Ministère des Finances. Son siège est fixé à Yaoundé.
+				</p>
+				<a href="https://www.antic.cm/index.php/fr/l-agence/presentation.html" class="btn btn-primary col-12"> {% trans "Lire plus" %} </a>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px; height: 385px;" src="/Images/partenaires/UMMISCO.png" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">UMMISCO</h5>
+				<p class="card-text">
+					L'Unité de Modélisation Mathématique et Informatique des Systèmes Complexes (UMMISCO) est une Unité Mixte Internationale placée sous la tutelle de 7 organismes universitaires en France, au Maroc, au Sénégal, au Cameroun et au Vietnam. Historiquement, elle est issue d’une collaboration entre l’UR IRD Geodes, créée en 2000, et le LMDP (Maroc). Ces échanges se sont élargis par la création en 2003 du réseau MAT impliquant l’Université de Yaoundé I (Cameroun) et l'Université Cheikh Anta Diop (UCAD, Sénégal). L’Université Gaston BERGER (UGB, Sénégal) et l’Institut Francophone d’Informatique (Vietnam) ont rejoint l’unité en 2009, avant l’Université des Sciences et Technologies de Hanoï (USTH, Vietnam) en 2014.
+				</p>
+				<a href="https://www.ummisco.fr/?page_id=521" class="btn btn-primary col-12"> {% trans "Lire plus" %} </a>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px; height: 300px;" src="/Images/partenaires/LIRIMA.jpeg" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">LIRIMA</h5>
+				<p class="card-text">
+					Laboratoire International de Recherche en Informatique et Mathémétiques Appliquées (LIRIMA) est un laboratoire de recherche international réunissant Inria et huit institutions de pays d'Afrique subsaharienne et du Maghreb. Son siège se situe depuis 2019 à Tunis. Les chercheurs collaborent sur des projets en sciences numériques (informatique et mathématiques), encadrent des étudiants dans leurs parcours universitaire, et contribuent au développement au développement et social du continent.
+					<a href="https://lirima.inria.fr/fr/" class="btn btn-primary col-12"> {% trans "Lire plus" %} </a>
+				</p>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px;" src="/Images/partenaires/gicam.jpg" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px;" src="/Images/partenaires/gicam.jpg" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="card mb-5">
+			<div class="row">
+			<div class="col-md-4">
+				<img style="width: 800px;" src="/Images/partenaires/gicam.jpg" class="img-fluid rounded-start" alt="...">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				</div>
+			</div>
+			</div>
+		</div> -->
+	</div>
+</section>
+
+{% endblock content %}

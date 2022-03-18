@@ -1,0 +1,167 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Programme | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Programme d’enseignements au Département d’Informatique
+de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Doctorat, Master, Licence, enseignements">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programme | Département d'Informatique">
+<meta property="og:description" content="Programme d’enseignements au Département d’Informatique">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+	{% with titre="programme"%}
+		{% include 'barbillard/_partials/navbar.html' %}
+	{% endwith %}
+{% endblock nav %}
+
+{% block stylepage %}
+	<style>
+		.formation-box{
+			cursor: pointer;
+		}
+		.formation-box:hover{
+			background-size: cover;
+			background-image: linear-gradient(to bottom, rgba(222,58,153,0.7), rgba(106,78,119,0.7)), url("{% static 'barbillard/images/cycle/licence.jpg' %}");
+		}
+		.formation-box:hover h4, .formation-box:hover p, .formation-box:hover .feature-icon{
+			color: white;
+		}
+	</style>
+{% endblock stylepage %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Programme" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten"> {% trans "Programme d’enseignements au Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<section class="section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h2 class="section-title"> {% trans "Nos progammes de formation" %}</h2>
+			</div>
+			<div class="col-md-12 order-2 order-md-1">
+				<h3 class="section-title"> -- {% trans "Progammes de formation fondamentale" %}</h3>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:licence' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-bookmark m-auto feature-icon"></i>
+						<h4> {% trans "Licence" %}</h4>
+						<p>
+							{% trans "Le cycle de Licence qui s'étant sur six (06) semestres, donne droit au diplôme de Licence" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:master' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-medall-alt m-auto feature-icon"></i>
+						<h4> {% trans "Master" %}</h4>
+						<p>
+							{% trans "En quatre (04) semestres, subdivisée en Master I et Master II, donne droit au Diplôme de Master 2" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:doctorat' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-write m-auto feature-icon"></i>
+						<h4> {% trans "Doctorat/PhD" %}</h4>
+						<p>
+							{% trans "En six (06) semestres lui-aussi, donne droit au diplôme de Doctorat/PhD" %}
+						</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<br><br>
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h3 class="section-title"> -- {% trans "Progammes de formation professionnelle" %}</h3>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:licence' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-bookmark m-auto feature-icon"></i>
+						<h4> {% trans "ICT for Development" %}</h4>
+						<p>
+							{% trans "Le cycle de Licence qui s'étant sur six (06) semestres, donne droit au diplôme de Licence" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:master' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-medall-alt m-auto feature-icon"></i>
+						<h4> {% trans "Licence pro" %}</h4>
+						<p>
+							{% trans "En quatre (04) semestres, subdivisée en Master I et Master II, donne droit au Diplôme de Master 2" %}
+						</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 text-center"
+				styled="background-image: url({% static 'barbillard/images/cycle/licence.jpg' %});">
+				<a href="{% url 'barbillard:doctorat' %}">
+					<div class="mb-2 p-3 formation-box">
+						<i class="ti-write m-auto feature-icon"></i>
+						<h4> {% trans "Master pro" %}</h4>
+						<p>
+							{% trans "En six (06) semestres lui-aussi, donne droit au diplôme de Doctorat/PhD" %}
+						</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,124 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Evènements | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Nos évènements et activités">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Evènements, activites">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Evènements | Département d'Informatique">
+<meta property="og:description" content="Nos évènements et activités">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+	{% with titre="events"%}
+		{% include 'barbillard/_partials/navbar.html' %}
+	{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary"
+                            href="{% url 'barbillard:event' %}"> {% trans "Evènements" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten"></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- events -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <a href="{% url 'barbillard:event_pdf' %}" style="margin-bottom:20px">
+	            Download Events...
+            </a>
+            <div class="col-12">
+                <h4 class="section-title"> {% trans "Rechercher un évènement" %}</h4>
+                <form action="" method="GET" class="row">
+                    <div class="col-12">
+                        <input type="text" {% if searched %} value="{{searched}}" {% endif %} class="form-control mb-3" id="searched" name="searched" placeholder="Recherche...">
+                    </div>
+                </form>
+                {% if searched %}
+                    <p> {% trans "Résultat pour" %} <span class="text-primary">{{searched}}</span></p>
+                {% endif %}
+                <hr>
+            </div>
+
+            <!-- event -->
+            {% for event in liste_evenements %}
+            <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="card border-0 rounded-0 hover-shadow">
+                    <div class="card-img position-relative">
+                        <img class="card-img-top rounded-0" style="height: 300px;" src="{{event.image.url}}" alt="event thumb">
+                        <div class="card-date"><span>{{event.date|date:"d"}}</span><br>{{event.date|date:"F"}}</div>
+                    </div>
+                    <div class="card-body">
+                        <!-- location -->
+                        <p><i class="ti-location-pin text-primary mr-2"></i>{{event.lieu}}</p>
+                        <a href="{% url 'barbillard:detail_event' event.slug %}">
+							<h4 class="card-title">{{event.title}}</h4>
+						</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if liste_evenements.has_other_pages %}
+        <nav>
+        <ul class="pagination justify-content-center">
+            {% if liste_evenements.has_previous %}
+            <li><a class="page-link" href="?page={{ liste_evenements.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+            {% for i in liste_evenements.paginator.page_range %}
+            {% if liste_evenements.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if liste_evenements.has_next %}
+            <li><a class="page-link" href="?page={{ liste_evenements.next_page_number }}">&raquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+        </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+<!-- /events -->
+
+{% endblock content %}

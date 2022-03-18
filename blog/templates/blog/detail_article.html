@@ -1,0 +1,178 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block title %}
+<title>{{article.title}} | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="{{article.body|truncatechars:160}}">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, article, blog">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{article.title}} | Département d'Informatique">
+<meta property="og:description" content="{{article.body|truncatechars:160}}">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{article.image.url}}">
+<meta property="og:image:type" content="image/jpg" />
+<!-- <meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" /> -->
+<meta property="og:image:alt" content="{{article.title}}" />
+<meta property="article:published_time" content="{{article.created_at|date:'Y'}}-{{article.created_at|date:'m'}}-{{article.created_at|date:'d'}}">
+<meta property="article:author" content="{{article.user.first_name}}">
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static blog/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary"
+                            href="{% url 'article' %}"> {% trans "Blog" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">
+                        {{ article.title }}
+                    </li>
+                </ul>
+                <!-- <p class="text-lighten"></p> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- blog details -->
+<section class="section-sm bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <img src="{{article.image.url}}" alt="{{ article.title }}" class="img-fluid w-100">
+            </div>
+            <div class="col-12">
+                <ul class="list-inline">
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2"> {% trans "Posté par :" %}</span>{{article.user.first_name}}</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light">{{article.created_at|date:"d"}}
+                        {{article.created_at|date:"N"}}, {{article.created_at|date:"Y"}}</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><i class="ti-book mr-2"></i>Read 289</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><i class="ti-share mr-2"></i>289</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><a class="text-light" href="#"><i
+                                class="ti-comments mr-2"></i>265</a></li>
+                </ul>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+            <!-- blog contect -->
+            <div class="col-12 mb-5">
+                <h2>{{article.title}}</h2>
+                <p>
+                    {{article.body|safe }}
+                </p>
+            </div>
+
+
+
+            <div class="col-md-8 card mb-4  mt-3 ">
+                <div class="card-body">
+                  <!-- comments -->
+                  {% with comments.count as total_comments %}
+                  <h2>{{ total_comments }} comments</h2>
+          
+                  <p>
+                    {% endwith %} {% for comment in comments %}
+                  </p>
+          
+                  <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                      {{ comment.name }}
+                      <span class=" text-muted font-weight-normal">
+                        {{ comment.date_added }}
+                      </span>
+                    </p>
+                    {{ comment.contain | linebreaks }}
+                  </div>
+          
+                  {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-8 card mb-4  mt-3 ">
+                <div class="card-body">
+                  {% if new_comment %}
+                    <div class="alert alert-success" role="alert">
+                        {% trans "Votre commentaire est en attente de modération" %}
+                    </div>
+                    {% else %}
+
+
+                    <div class="col-12">
+                        <form action="#" class="row" method="POST">
+                            {{ comment_form | crispy }}
+                            <!-- <div class="col-12">
+                                <textarea name="comment" id="comment" class="form-control mb-4"
+                                    placeholder="Commentez Ici..."></textarea>
+                            </div> -->
+                            {% csrf_token %}
+                            <div class="col-12">
+                                <button type="submit" value="send" class="btn btn-primary"> {% trans "commentez" %}</button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /blog details -->
+<!-- recommended post -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title"> {% trans "Articles recommandés" %}</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- blog post -->
+            {% for a in aer %}
+            {% if a.slug != article.slug %}
+            <article class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                <div
+                    class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+                    <img class="card-img-top rounded-0" style="height: 236px;" src="{{a.image.url}}" alt="{{a.title}}">
+                    <div class="card-body">
+                        <!-- post meta -->
+                        <ul class="list-inline mb-3">
+                            <!-- post date -->
+                            <li class="list-inline-item mr-3 ml-0">{{a.created_at|date:"d"}} {{a.created_at|date:"N"}},
+                                {{a.created_at|date:"Y"}}</li>
+                            <!-- author -->
+                            <li class="list-inline-item mr-3 ml-0">Par {{article.user}}</li>
+                        </ul>
+                        <a href="{% url 'detail_article' a.slug %}">
+                            <h4 class="card-title">{{a.title}}</h4>
+                        </a>
+                        <p class="card-text">{{a.body|truncatechars:60}}</p>
+                        <a href="{% url 'detail_article' a.slug %}" class="btn btn-primary btn-sm">Lire Plus</a>
+                    </div>
+                </div>
+            </article>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

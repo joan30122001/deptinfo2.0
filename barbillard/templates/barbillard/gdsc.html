@@ -1,0 +1,223 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>GDSC | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Page de Contact">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Contact, Contacter, ecrire">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nous Contacter | Département d'Informatique">
+<meta property="og:description" content="Page de Contact">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block stylepage %}
+
+{% endblock stylepage %}
+
+{% block nav %}
+{% with titre="gdsc"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+<section class="page-title-section overlay" style="background-repeat: no-repeat; background-size: cover;"
+    data-background="{% static 'barbillard/images/backgrounds/dsc.webp' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#">Yaoundé I University</a>
+                    </li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">
+                    Vous voulez savoir ce qu'est le DSC ? Ne vous inquiétez pas. Visitez juste cette page et vous comprendrez mieux.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="chapter-sub-nav">
+    <div class="container">
+        <ul class="row nav nav-underscore chapter-nav general-body--color">
+            <li>
+                <a href="#description" class="chapter_section_scroll general-tab">About</a>
+            </li>
+            <li>
+                <a href="#upcoming-events" class="chapter_section_scroll general-tab">Upcoming Events</a>
+            </li>
+            <li>
+                <a href="#past-events" class="chapter_section_scroll general-tab">Past Events</a>
+            </li>
+            <li>
+                <a href="#team-list" class="chapter_section_scroll general-tab">
+                    Organizers
+                </a>
+            </li>
+            <li>
+                <a href="#chapter-photos" class="chapter_section_scroll general-tab">Photos</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="about" class="container about section">
+    <h2 class="chapter-page general-h1">About</h2>
+    <div class="general-body">
+        <p>Google Developer Student Club, University of Yaounde I.🇨🇲</p>
+        <p>We are students👨‍🎓 (not only computer science student) who are looking forward to spreading knowledge across all students. We have to build actions for our community.😊 Join us and let's build together !<br></p>
+    </div>
+</div>
+
+<div class="sponsor-bg-container">
+    <div id="local-partners" class="container">
+        <h2 class="general-h1">Partner</h2>
+        <a class="sponsor-holder col-sm-4 col-md-2" href="https://gdg.community.dev/gdg-yaounde/" title="Google Developer Groups Yaoundé" rel="nofollow" target="_blank">
+            <div class="sponsor-rectangle" aria-label="Google Developer Groups Yaoundé logo" style="background-image: url(barbillard/images/backgrounds/gdg.webp)"></div>
+            <div class="event-page-popup">
+                <h3>Google Developer Groups Yaoundé</h3>
+                <div class="description">
+                    GDG Yaoundé is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation. To learn more about the GDG program, visit https://developers.google.com/community/gdg/
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+<div class="sponsor-bg-container">
+    <div id="organizers" class="container">
+        <h2 class="general-h1">Organizers</h2>
+        <div class="wrapper">
+            <div class="cards_wrap">
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/abdel_aziz_mfossa_njoya.webp' %}">
+                        <div class="real_name">Abdel Aziz MFOSSA</div>
+                        <div class="role_name">Ita Coetus <br> DSC Lead</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="margin-top: 30px; border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/luc_perin_panta_pameni.webp' %}">
+                        <div class="real_name">Luc Perin PANTA <br> PAMENI</div>
+                        <div class="role_name">ItaCoetus, DSC Co-Lead <br> Co-Lead</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="margin-top: 5px; border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/raphaël_ange_kouabitchou_njiecheu.webp' %}">
+                        <div class="real_name">Raphael Ange <br> KOUABITCHOU <br> NJIECHEU</div>
+                        <div class="role_name">Secretary General</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/pierre_junior_ndang_essi.webp' %}">
+                        <div class="real_name">Pierre Junior NDANG <br> ESSI</div>
+                        <div class="role_name">Techhnical Team Lead</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="margin-top: 22px; border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/gildas_segning_wouati_valGt5I.webp' %}">
+                        <div class="real_name">Gildas SEGNING <br> WOUATI</div>
+                        <div class="role_name">Non-Technical Team Lead</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="margin-top: 25px; border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/sarai_sadjo_legbane_jJLjhLF.webp' %}">
+                        <div class="real_name">Sarai SADJO <br> LEGBANE</div>
+                        <div class="role_name">Web Development Head</div>
+                        <div class="film">.</div>
+                        <button class="btn btns btn-classss" style="border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/van_fokou.webp' %}">
+                        <div class="real_name">Van FOKOU</div>
+                        <div class="role_name">Machine Learning Head</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="margin-top: 45px; border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <img src="{% static 'barbillard/images/IMG_20210123_155714.webp' %}">
+                        <div class="real_name">Marivone KEBOU</div>
+                        <div class="role_name">DSC University Yaoundé 1 <br> DSC Vice-Lead</div>
+                        <div class="film"></div>
+                        <button class="btn btns btn-classss" style="margin-top: 22px; border: 1px solid #6A4E77; color: #6A4E77;">View Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+
+
+<button type="button" class="contact-us btn btn-primary btn-lg" data-toggle="modal" data-target="#contact-host-modal">
+    <span class="icon-mail"> </span><span class="text">Contact Us</span>
+</button>
+
+<div class="chapter-photos" id="chapter-photos">
+    <div class="container photos">
+        <h2 class="chapter-page general-h1">Chapter Photos</h2>
+        <div id="react-chapter-photos-root">
+            <div class="container">
+                <div class="row photos">
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img1.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img1.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img2.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img2.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img3.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img3.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img4.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img4.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img5.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img5.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img6.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img6.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img7.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img7.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img8.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img8.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img9.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img9.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img10.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img10.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img11.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img11.webp' %}"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{% static 'barbillard/images/img12.webp' %}" data-lightbox="photos"><img class="img-fluid" src="{% static 'barbillard/images/img12.webp' %}"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+</div>
+
+{% endblock content %}

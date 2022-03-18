@@ -1,0 +1,142 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>Nos Coordonnées | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Coordonnées">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Contact, Telephone, Adresse, Email">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nos Coordonnées | Département d'Informatique">
+<meta property="og:description" content="Coordonnées">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+{% with titre="coordonnees"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Coordonnées" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten"> {% trans "Coordonnées du Département d'Informatique" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- dpt details -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-5">
+                <img class="img-fluid w-100" src="{% static 'barbillard/images/about/dpt-info.jpg' %}"
+                    alt="Département d'Informatique">
+            </div>
+            <div class="col-md-6 mb-5">
+                <h3> {% trans "Département d'Informatique" %}</h3>
+                <h6 class="text-color"> {% trans "Faculté des Sciences / Université de Yaoundé I." %}</h6>
+                <p class="mb-5">
+                    {% trans "Le secrétariat du Département d'informatique et les bureaux sont situés à l'extension n° 1 de la Faculté des Sciences de l'Université de Yaoundé I." %}
+                </p>
+                <div class="row">
+                    <div class="col-md-7 mb-5 mb-md-0">
+                        <h4 class="mb-4"> {% trans "CONTACTS :" %}</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <a class="text-color" target="_blank" href="https://goo.gl/maps/g2SWnqErXsETXjUZ6"
+                                    style="line-height: 1.6;"><i class="ti-location-pin mr-2"></i>
+                                    {% trans "Faculté des Sciences<br> Université de Yaoundé I<br> 254, Rue de l'Université - Ngoaékélé<br> Yaoundé, Cameroun" %}
+                                </a>
+                            </li>
+                            <li class="mb-3">
+                                <a class="text-color" href="callto:237 224-432"><i class="ti-mobile mr-2"></i>
+                                    <b> {% trans "Téléphone" %}</b> : 237 224-432
+                                </a>
+                            </li>
+                            <li class="mb-3">
+                                <a class="text-color" href="mailto:dept-inf@facsciences-uy1.cm"><i
+                                        class="ti-email mr-2"></i>
+                                    dept-inf@facsciences-uy1.cm
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h4 class="mt-4 mb-4"> {% trans "Secrétaires de Direction :" %}</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3" style="line-height: 1.6;">
+                                ATEBA Pierrette Estelle<br>
+                                <a class="text-color" target="_blank"
+                                    href="mailto:pierrette.ateba@facsciences-uy1.cm"><i class="ti-email mr-2"></i>
+                                    pierrette.ateba@facsciences-uy1.cm
+                                </a>
+                            </li>
+                            <li class="mb-3" style="line-height: 1.6;">
+                                NGO KOBLA Adèle Yvonne<br>
+                                <a class="text-color" target="_blank" href="mailto:adele.bala@facsciences-uy1.cm"><i
+                                        class="ti-email mr-2"></i>
+                                    adele.ngo@facsciences-uy1.cm
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="mb-4"> {% trans "Le Chef de Département" %}</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <a href="{% url 'enseignement:detail_enseignant' 'halidou' %}">Dr. Aminou Halidou</a>
+                            </li>
+                            <li class="mb-3">
+                                <a class="text-color" href="mailto:chef-dept-inf@facsciences-uy1.cm"><i
+                                        class="ti-email mr-2"></i>
+                                    chef-dept-inf@facsciences-uy1.cm
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h4 class="mt-4 mb-4"> {% trans "Point Focal :" %}</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <a class="text-color" target="_blank" href="mailto:pointfocal-inf@facsciences-uy1.cm"><i
+                                        class="ti-email mr-2"></i>
+                                    pointfocal-inf@facsciences-uy1.cm
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /dpt details -->
+
+{% endblock content %}

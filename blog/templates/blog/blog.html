@@ -1,0 +1,126 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title>Nos articles | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Nos Articles et Blog">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Blog, Articles">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Nos articles | Département d'Informatique">
+<meta property="og:description" content="Nos Articles et Blog">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'blog/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+{% with titre="article"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'blog/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Blog" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">{% trans "Nous publions ici nos articles et astuces." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- blogs -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="section-title">{% trans "Rechercher un article" %}</h4>
+                <form action="" method="GET" class="row">
+                    <div class="col-12">
+                        <input type="text" {% if searched %} value="{{searched}}" {% endif %} class="form-control mb-3" id="searched" name="searched" placeholder="Recherche...">
+                    </div>
+                </form>
+                {% if searched %}
+                    <p> {% trans "Résultat pour" %} <span class="text-primary">{{searched}}</span></p>
+                {% endif %}
+                <hr>
+            </div>
+
+            <!-- blog post -->
+            {% for article in liste_articles %}
+            <article class="col-lg-4 col-sm-6 mb-5">
+                <div
+                    class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+                    <img class="card-img-top rounded-0" style="height: 236px;" src="{{article.image.url}}"
+                        alt="{{article.slug}}">
+                    <div class="card-body">
+                        <!-- post meta -->
+                        <ul class="list-inline mb-3">
+                            <!-- post date -->
+                            <li class="list-inline-item mr-3 ml-0">{{article.created_at|date:"d"}}
+                                {{article.created_at|date:"N"}}, {{article.created_at|date:"Y"}}</li>
+                            <!-- author -->
+                            <li class="list-inline-item mr-3 ml-0">Par {{article.user.first_name}}</li>
+                        </ul>
+                        <a href="{% url 'detail_article' article.slug %}">
+                            <h4 class="card-title">{{article.title}}</h4>
+                        </a>
+                        <p class="card-text">{{article.body|truncatechars:60|safe}}</p>
+                        <a href="{% url 'detail_article' article.slug %}" class="btn btn-primary btn-sm"> {% trans "Lire Plus" %}</a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        {% if liste_articles.has_other_pages %}
+        <nav>
+        <ul class="pagination justify-content-center">
+            {% if liste_articles.has_previous %}
+            <li><a class="page-link" href="?page={{ liste_articles.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+            {% for i in liste_articles.paginator.page_range %}
+            {% if liste_articles.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if liste_articles.has_next %}
+            <li><a class="page-link" href="?page={{ liste_articles.next_page_number }}">&raquo;</a></li>
+            {% else %}
+            <li class="disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+        </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

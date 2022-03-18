@@ -1,0 +1,140 @@
+{% extends 'information/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Master d'Informatique | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Programme d’enseignements en Master Informatique du Département d’Informatique
+de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Master">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Master d'Informatique | Département d'Informatique">
+<meta property="og:description"
+    content="Programme d’enseignements en Master Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'information/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'information/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="{% url 'programme' %}"> {% trans "Programme" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted"> {% trans "Master d'Informatique" %}</li>
+                </ul>
+                <p class="text-lighten"> {% trans "Programme d’enseignements en Master Informatique du Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+    <div class="container">
+        <!-- program info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-6 order-1 col-sm-6 mb-4 mb-xl-0">
+                <h2> {% trans "Master d'Informatique" %}</h2>
+            </div>
+            <div class="col-xl-3 order-sm-3 order-xl-2 col-12 order-2">
+                <ul class="list-inline text-xl-left">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-book text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "DUREE" %}</h6>
+                                <p class="mb-0"> {% trans "02 Ans" %}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">DURATION</h6>
+                                <p class="mb-0">03 Hours</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-wallet text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">FEE</h6>
+                                <p class="mb-0">From: $699</p>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-xl-3 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+                <a href="#" download="Grille Master Informatique" class="btn btn-primary"> {% trans "Télécharger" %}</a>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+        <!-- program details -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3> {% trans "Objectifs de la Formation" %}</h3>
+                <p>
+                    {% trans "La mention Informatique du cycle master propose un enseignement scientifique et technique de haut niveau destiné à former des informaticiens capables de s’adapter à l’évolution rapide des technologies de l’information. Son offre d’enseignement, orientée à la fois vers la recherche et vers les entreprises. La diversité des parcours offerts élargit le spectre des connaissances conceptuelles et technologiques qui seront maîtrisées par les étudiants. Dans cette dynamique, il est proposé à l’étudiant trois parcours au choix :" %}
+                <ul class="list-styled">
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3 class="mb-3"> {% trans "Organisation de la Formation" %}</h3>
+                <p>
+                    {% trans "Le premier semestre permet de renforcer la formation acquise à l’issue de la licence et apporte des compléments pour les étudiants souhaitant préparer les concours de recrutement. La spécialisation se fait progressivement à partir du premier semestre de M1 jusqu'en deuxième année avec le choix de certaines unités d’enseignements et le choix du thème de recherche du mémoire." %}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3> {% trans "Conditions d'Accès" %}</h3>
+                <p>
+                    {% trans "Les étudiants sont admis au cycle de Master d'Informatique au niveau 4.<br> <strong>Accès en 4 ère année (M1) :</strong> Licence d'Informatique, Licence de Mathématiques-Informatique, option Informatique fondamentale." %}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <h3> {% trans "Débouchés" %}</h3>
+                <p>
+                    {% trans "À l’issue de leur formation les diplômés peuvent occuper des postes d’ingénieurs de développement, chefs de projet, concepteurs et architectes des systèmes informatiques complexes, Chef de division informatique, cadre supérieur. Les diplômés peuvent aussi envisager la poursuite de leurs études au cycle Doctorat." %}
+                </p>
+            </div>
+            <div class="col-12 mb-4">
+                <a href="#" download="Grille Licence Informatique" class="btn btn-primary">
+                    {% trans "Télécharger la Grille des enseignements" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->
+
+{% endblock content %}

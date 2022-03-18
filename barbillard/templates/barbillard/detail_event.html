@@ -1,0 +1,176 @@
+{% extends 'information/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>{{event.title}} | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="{{event.description}}">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Evènements, activites">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{event.title}} | Département d'Informatique">
+<meta property="og:description" content="{{event.description}}">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{{event.image.url}}">
+<meta property="og:image:type" content="image/jpg" />
+<!-- <meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" /> -->
+<meta property="og:image:alt" content="{{event.title}}" />
+<meta property="article:published_time" content="{{event.created_at|date:'Y'}}-{{event.created_at|date:'m'}}-{{event.created_at|date:'d'}}">
+{% endblock graph %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'information/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary"
+                            href="{% url 'barbillard:event' %}"> {% trans "Evènements" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">{{ event.title }}</li>
+                </ul>
+                <p class="text-lighten">{{ event.description|truncatechars:184 }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- event single -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title">{{ event.title }}</h2>
+            </div>
+            <!-- event image -->
+            <div class="col-12 mb-4">
+                <img src="{{ event.image.url }}" alt="event thumb" class="img-fluid w-100">
+            </div>
+        </div>
+        <!-- event info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-9">
+                <ul class="list-inline">
+                    <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-location-pin text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "LIEU" %}</h6>
+                                <p class="mb-0">{{ event.lieu }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-calendar text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {% trans "DATE" %}</h6>
+                                <p class="mb-0" style="text-transform: capitalize;">{{ event.date|date:"d" }}-{{ event.date|date:"F" }}-{{ event.date|date:"Y" }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-time text-secondary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0"> {%trans "HEURE" %}</h6>
+                                <p class="mb-0">{{ event.begin }}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {% if event.lien %}
+            <div class="col-lg-3 text-lg-right text-left">
+                <a href="{{ event.lien }}" target="_blank" class="btn btn-primary"> {% trans "S'inscrire" %}</a>
+            </div>
+            {% endif %}
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+        <!-- event details -->
+        <div class="row">
+            <div class="col-12 mb-50">
+                <h3> {% trans "Description" %}</h3>
+                <p>
+                    {{ event.description }}
+                </p>
+            </div>
+        </div>
+        <!-- event speakers -->
+        <div class="row">
+            <div class="col-12">
+                <h3 class="mb-4">{{ event.speakers.last_name }} {% trans "Intervenant" %} {{ event.speakers.all.count|pluralize }}</h3>
+            </div>
+            <!-- speakers -->
+            {% for speaker in event.speakers.all %}
+            <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+                <div class="media">
+                    <img class="mr-3 img-fluid w-25" src="{{ speaker.photo.url }}" alt="speaker">
+                    <div class="media-body">
+                        <h4 class="mt-0">{{ speaker.titre }} {{ speaker.first_name }} {{ speaker.last_name }}</h4>
+                        {{ speaker.biographie }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /event single -->
+
+<!-- more event -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title"> {% trans "Autres Evènements" %}</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- event -->
+            {% for e in eer %}
+                {% if event.slug != e.slug %}
+                <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                    <div class="card border-0 rounded-0 hover-shadow">
+                        <div class="card-img position-relative">
+                            <img class="card-img-top rounded-0" src="{{e.image.url}}" alt="event thumb">
+                            <div class="card-date"><span>{{e.date|date:"d"}}</span><br>{{e.date|date:"F"}}</div>
+                        </div>
+                        <div class="card-body">
+                            <!-- location -->
+                            <p><i class="ti-location-pin text-secondary mr-2"></i>{{e.lieu}}</p>
+                            <a href="{% url 'barbillard:detail_event' e.slug %}">
+                                <h4 class="card-title">{{e.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor%}
+        </div>
+    </div>
+</section>
+<!-- /more event -->
+
+{% endblock content %}

@@ -1,0 +1,139 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+<title> {% trans "À propos du Département d'Informatique de l'Université de Yaoundé I" %}</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="À propos du Département d'Informatique de l'Université de Yaoundé I">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, À propos, About, Description">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="À propos du Département d'Informatique de l'Université de Yaoundé I">
+<meta property="og:description" content="À propos du Département d'Informatique de l'Université de Yaoundé I">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+{% with titre="presentation"%}
+{% include 'barbillard/_partials/navbar.html' %}
+{% endwith %}
+{% endblock nav %}
+
+{% block content %}
+
+<!-- page title -->
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href=""> {% trans "Présentation" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten">
+                    {% trans "Description et présentation du Département d'Informatique." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /page title -->
+
+<!-- about -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img class="img-fluid w-100 mb-4" src="{% static 'barbillard/images/about/about-page.jpg' %}"
+                    alt="about image">
+                <h2 class="section-title"> {% trans "À propos du Département d'Informatique" %}</h2>
+                <p>
+                    {% trans "Les enseignements d’Informatique ont démarré à la Faculté des Sciences de l’Université de Yaoundé en 1978. À la faveur de la convention tripartite signée entre l’Université des Nations Unies (UNU), l’Institut National de Recherche en Informatique et Automatique (INRIA) et l’Université de Yaoundé I en 1985, la Maîtrise a démarré, suivie l’année d’après par le cycle de Doctorat." %}
+                </p>
+                <p>
+                    {% trans "Le Département d'informatique abritant les bureaux, les laboratoires et les salles de TP/TD est situé à l'<b>Extension N° 1</b> de la Faculté des Sciences de l'Université de Yaoundé I." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /about -->
+
+<!-- funfacts -->
+<section class="section-sm bg-primary mb-4">
+    <div class="container">
+        <div class="row">
+            <!-- funfacts item -->
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="25">0</h2>
+                    <h5 class="text-white"> {% trans "ENSEIGNANTS" %}</h5>
+                </div>
+            </div>
+            <!-- funfacts item -->
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="120">0</h2>
+                    <h5 class="text-white"> {% trans "COURS" %}</h5>
+                </div>
+            </div>
+            <!-- funfacts item -->
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="2500">0</h2>
+                    <h5 class="text-white"> {% trans "ETUDIANTS" %}</h5>
+                </div>
+            </div>
+            <!-- funfacts item -->
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="3737">0</h2>
+                    <h5 class="text-white"> {% trans "DIPLOMÉS" %}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /funfacts -->
+
+<!-- Chef de Depart -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-md-8 order-2 order-md-1">
+                <h2 class="section-title"> {% trans "Mot du Chef de Département" %}</h2>
+                <h4 class="text-secondary">Dr. Aminou Halidou</h4>
+                <i><small> {% trans "Chargé de Cours, Université de Yaoundé I" %}</small></i>
+                <p class="mt-4">
+                    {% trans "(Mot du Chef)" %}
+                </p>
+                <a href="{% url 'enseignement:detail_enseignant' 'halidou' %}" class="btn btn-primary-outline"> {% trans "Bibliographie" %}</a>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 mb-4 mb-md-0">
+                <img class="img-fluid w-100" src="{% static 'barbillard/images/about/about-us.jpg' %}"
+                    alt="Photo Chef de Département d'Informatique">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Chef de Depart -->
+
+{% endblock content %}

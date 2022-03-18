@@ -1,0 +1,227 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        {% block title %}
+            <title> {% trans "Département d'Informatique de l'Université de Yaoundé I" %}</title>
+        {% endblock title %}
+
+		{% block meta %}
+			<meta charset="UTF-8">
+			<!-- mobile responsive meta -->
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<meta name="description" content="Département d'Informatique de l'Université de Yaoundé I, Page d'accueil">
+			<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Deptinfo, UY1, UYI, Accueil, home">
+			<meta name="author" content="Abdel Aziz MFOSSA">
+        {% endblock meta %}
+
+		{% block graph %}
+			<meta property="og:type" content="website">
+			<meta property="og:title" content="Département d'Informatique de l'Université de Yaoundé I">
+			<meta property="og:description" content="Département d'Informatique de l'Université de Yaoundé I, Page d'accueil">
+			<meta property="og:site_name" content="Département d'Informatique">
+			<meta property="og:url" content="{{ request.build_absolute_uri }}">
+			<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+			<meta property="og:image:type" content="image/jpg" />
+			<meta property="og:image:width" content="600" />
+			<meta property="og:image:height" content="450" />
+			<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+			<meta property="article:published_time" content="2019-04-25">
+			<meta property="article:author" content="Abdel Aziz MFOSSA">
+		{% endblock graph %}
+
+        {% block styles %}
+			<!-- ** Plugins Needed for the Project ** -->
+			<!-- Bootstrap -->
+			<link rel="stylesheet" href="{% static 'barbillard/plugins/bootstrap/bootstrap.min.css' %}">
+			<!-- slick slider -->
+			<link rel="stylesheet" href="{% static 'barbillard/plugins/slick/slick.css' %}">
+			<!-- themefy-icon -->
+			<link rel="stylesheet" href="{% static 'barbillard/plugins/themify-icons/themify-icons.css' %}">
+			<!-- animation css -->
+			<link rel="stylesheet" href="{% static 'barbillard/plugins/animate/animate.css' %}">
+			<!-- aos -->
+			<link rel="stylesheet" href="{% static 'barbillard/plugins/aos/aos.css' %}">
+			<!-- venobox popup -->
+			<link rel="stylesheet" href="{% static 'barbillard/plugins/venobox/venobox.css' %}">
+
+			<!-- <link rel="stylesheet" href="{% static 'barbillard/plugins/lightbox.min.css' %}"> -->
+
+
+			<!-- Main Stylesheet -->
+			<link href="{% static 'barbillard/css/style.css' %}" rel="stylesheet">
+			<!-- <link href="{% static 'barbillard/css/styles.css' %}" rel="stylesheet"> -->
+
+			<!--Favicon-->
+			<link rel="shortcut icon" href="{% static 'barbillard/images/favicon.ico' %}" type="image/x-icon">
+			<link rel="icon" href="{% static 'barbillard/images/favicon.ico' %}" type="image/x-icon">
+		{% endblock styles %}
+
+		{% block stylepage %}
+
+		{% endblock stylepage %}
+
+	</head>
+
+	<body>
+		
+		{% block nav %}
+			{% include 'barbillard/_partials/navbar.html' %}
+		{% endblock nav %}
+
+		{% block content %}
+			
+        {% endblock content %}
+
+		{% block footer %}
+			
+			<!-- footer -->
+			<footer>
+				<button id="btns">
+					<i class=""> <img src="/Images/arrow/top-arrow.png"> </i>
+				</button>
+			  <!-- newsletter -->
+			  <div class="newsletter">
+			    <div class="container">
+			      <div class="row">
+			        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+			          <h3 class="text-white"> {% trans "Souscrire à la liste de diffusion" %}</h3>
+			          <form action="#">
+			            <div class="input-wrapper">
+			              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder='{% trans "Entrez votre adresse E-mail..." %}'>
+			              <button type="submit" value="send" class="btn btn-primary">{% trans "Rejoindre" %}</button>
+			            </div>
+			          </form>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			  <!-- footer content -->
+			  <div class="footer bg-footer section border-bottom">
+			    <div class="container">
+			      <div class="row">
+			        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+			          <!-- logo -->
+			          <a class="logo-footer" href="{% url 'home' %}"><img class="img-fluid mb-4" src="{% static 'barbillard/images/logo.png' %}" alt="logo"></a>
+			          <ul class="list-unstyled">
+			            <li class="mb-2"> {% trans "Département d'Informatique, UY1, Yaoundé, Cameroun" %}</li>
+			            <li class="mb-2">+237 345 6789</li>
+			            <li class="mb-2">+237 345 6789</li>
+			            <li class="mb-2">******@facsciences-uy1.cm</li>
+			          </ul>
+			        </div>
+			        <!-- company -->
+			        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+			          <h4 class="text-white mb-5"> {% trans "DEPARTEMENT" %}</h4>
+			          <ul class="list-unstyled">
+			            <li class="mb-3"><a class="text-color" href="{% url 'barbillard:presentation' %}"> {% trans "A propos" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="{% url 'enseignement:enseignant' %}"> {% trans "Nos Ensegnants" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="{% url 'barbillard:contact' %}"> {% trans "Contact" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="{% url 'blog:article' %}"> {% trans "Blog" %}</a></li>
+			          </ul>
+			        </div>
+			        <!-- links -->
+			        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+			          <h4 class="text-white mb-5"> {% trans "LIENS" %}</h4>
+			          <ul class="list-unstyled">
+			            <li class="mb-3"><a class="text-color" href="{% url 'enseignement:courses' %}"> {%trans "Cours" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="{% url 'barbillard:event' %}"> {% trans "Evènements" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "Gallerie" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "Foire aux Questions" %}</a></li>
+			          </ul>
+			        </div>
+			        <!-- support -->
+			        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+			          <h4 class="text-white mb-5"> {% trans "SUPPORT" %}</h4>
+			          <ul class="list-unstyled">
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "Forums" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "Documentation" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "Langage" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "Release Status" %}</a></li>
+			          </ul>
+			        </div>
+			        <!-- support -->
+			        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+			          <h4 class="text-white mb-5"> {% trans "AUTRES" %}</h4>
+			          <ul class="list-unstyled">
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "UY1" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "FS" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "CRFD" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="#"> {% trans "URFD" %}</a></li>
+			          </ul>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			  <!-- copyright -->
+			  <div class="copyright py-4 bg-footer">
+			    <div class="container">
+			      <div class="row">
+			        <div class="col-sm-7 text-sm-left text-center">
+			          <p class="mb-0">Copyright
+			            <script>
+			              var CurrentYear = new Date().getFullYear()
+			              document.write(CurrentYear)
+			            </script> 
+			            © <a href="#"> {% trans "Computer Science Department" %}</a>.  {% trans "Tous droits réservés" %}.</p> 
+			        </div>
+			        <div class="col-sm-5 text-sm-right text-center">
+			          <ul class="list-inline">
+			            <li class="list-inline-item"><a class="d-inline-block p-2" target="_blank" href="https://www.facebook.com/"><i class="ti-facebook text-primary"></i></a></li>
+			            <li class="list-inline-item"><a class="d-inline-block p-2" target="_blank" href="https://www.twitter.com/"><i class="ti-twitter-alt text-primary"></i></a></li>
+			          </ul>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</footer>
+			<!-- /footer -->
+		{% endblock footer %}
+
+		{% block scripts %}
+			<!-- jQuery -->
+			<script src="{% static 'barbillard/plugins/jQuery/jquery.min.js' %}"></script>
+			<!-- Bootstrap JS -->
+			<script src="{% static 'barbillard/plugins/bootstrap/bootstrap.min.js' %}"></script>
+			<!-- slick slider -->
+			<script src="{% static 'barbillard/plugins/slick/slick.min.js' %}"></script>
+			<!-- aos -->
+			<script src="{% static 'barbillard/plugins/aos/aos.js' %}"></script>
+			<!-- venobox popup -->
+			<script src="{% static 'barbillard/plugins/venobox/venobox.min.js' %}"></script>
+			<!-- mixitup filter -->
+			<script src="{% static 'barbillard/plugins/mixitup/mixitup.min.js' %}"></script>
+			<!-- google map -->
+			<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script> -->
+			<script src="{% static 'barbillard/plugins/google-map/gmap.js' %}"></script>
+
+			<!-- <script src="{% static 'barbillard/plugins/jquery.min.js' %}"></script>
+			<script src="{% static 'barbillard/plugins/bootstrap.bundle.min.js' %}"></script>
+			<script src="{% static 'barbillard/plugins/lightbox.min.js' %}"></script> -->
+
+			<!-- Main Script -->
+			<script src="{% static 'barbillard/js/script.js' %}"></script>
+		{% endblock scripts %}
+
+	</body>
+</html>
+
+<!-- ScrollTop Script -->
+<script>
+	$(document).ready(function(){
+		$(window).scroll(function(){
+			if($(this).scrollTop() > 20){
+				$("#btns").fadeIn();
+			}
+			else{
+				$("#btns").fadeOut();
+			}
+		});
+		$("#btns").click(function(){
+			$("html,body").animate({scrollTop : 0}, 1000);
+		})
+	});
+</script>
