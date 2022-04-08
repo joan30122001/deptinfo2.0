@@ -181,9 +181,24 @@
 
                 {% include 'barbillard/_partials/messages.html' %}
 
+
+
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <a href="javascript:visibilite('student');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
+                        <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></a>
+                        <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
+                    </div>
+                </div>
+
+
+
                 <form action = "{% url 'barbillard:user_register' %}" method="POST">
                     {% csrf_token %}
-                    <div class="form-group">
+                    {% comment %} <div class="form-group">
                         <div class="form-check form-check-inline">
                             <a href="javascript:visibilite('student');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
                             <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
@@ -192,7 +207,7 @@
                             <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></a>
                             <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                     <div id="student" style="display:block;">
                         {% comment %} <div class="form-group">
                             <div class="form-check form-check-inline">
@@ -232,7 +247,7 @@
                                 <option value="6">ICT L2</option>
                                 <option value="7">ICT L3</option>
                                 <option value="8">Master Pro</option>
-                            </select> {% endcomment %}
+                            </select> {% endcomment %} 
                             {{ form.niveau }}
                         </div>
                         <div class="form-group">
@@ -252,6 +267,13 @@
                         </div>
                         <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
                     </div>
+                    
+                    {% comment %} <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button> {% endcomment %}
+                </form>
+
+
+                <form action = "{% url 'barbillard:user_register' %}" method="POST">
+                    {% csrf_token %}
                     <div id="teacher" style="display:none;">
                         <div class="form-group">
                             <label for="telephone"> {% trans "Telephone" %} </label>
@@ -270,8 +292,9 @@
                         </div>
                         <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
                     </div>
-                    {% comment %} <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button> {% endcomment %}
                 </form>
+
+
             </div>
             <div class="col-md-6">
                 <div class="info">

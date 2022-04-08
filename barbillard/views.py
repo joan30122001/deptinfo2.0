@@ -356,7 +356,7 @@ def event_pdf(request):
 
 def user_register(request):
     # if this is a POST request we need to process the form data
-    template = 'barbillard/signup.html'
+    template = 'barbillard/signup.html' 
    
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -369,45 +369,61 @@ def user_register(request):
                     'error_message': 'Username already exists.'
                 })
 
-            elif User.objects.filter(email=form.cleaned_data['email']).exists():
-                return render(request, template, {
-                    'form': form,
-                    # messages.error(request, 'Error. Email already exists..')
-                    'error_message': 'Email already exists.'
-                })
-
-            elif form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
-                return render(request, template, {
-                    'form': form,
-                    'error_message': 'Passwords do not match.'
-                })
-
-            # elif TB_Etudiant.objects.filter(email=form.clean_data['email'], matricule=form.clean_data['matricule'], is_active=False) is not None:
-            #     return render(request, template, {
-            #         'form': form,
-            #         'error_message': 'You are not a student, if you are sure you are one please contact the admin at abdelmfossa@gmail.com .'
-            #     })
-                
             else:
-                # Create the user:
-                user = User.objects.create_user(
-                    form.cleaned_data['username'],
-                    form.cleaned_data['email'],
-                    # form.cleaned_data['matricule'],
-                    # form.cleaned_data['niveau'],
-                    # form.cleaned_data['phone'],
-                    form.cleaned_data['password']
-                )
-                user.matricule = form.cleaned_data['matricule']
-                user.niveau = form.cleaned_data['niveau']
-                user.phone = form.cleaned_data['phone']
-                user.save()
-               
-                # Login the user
-                login(request, user)
-               
-                # redirect to accounts page:
-                return HttpResponseRedirect('barbillard/home')
+                if User.objects.filter(email=form.cleaned_data['email']).exists():
+                    return render(request, template, {
+                        'form': form,
+                        # messages.error(request, 'Error. Email already exists..')
+                        'error_message': 'Email already exists.'
+                    })
+                else:
+                    if form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
+                        return render(request, template, {
+                            'form': form,
+                            'error_message': 'Passwords do not match.'
+                        })
+                    else:
+
+                        try:
+                            etudiant = TB_Etudiant.objects.get(email=form.cleaned_data['email'], matricule=form.cleaned_data['matricule'])
+                        except TB_Etudiant.DoesNotExist:
+                            etudiant = None
+
+                        if not etudiant:
+                            return render(request, template, {
+                                'form': form,
+                                'error_message': 'You are not a student, if you are sure you are one please contact the admin at abdelmfossa@gmail.com .'
+                            })
+                        else:
+                            if etudiant.is_active == True:
+                                return render(request, template, {
+                                'form': form,
+                                'error_message': 'You already have an account.'
+                            })
+                            else:
+                                # Create the user:
+                                user = User.objects.create_user(
+                                    form.cleaned_data['username'],
+                                    form.cleaned_data['email'],
+                                    # form.cleaned_data['matricule'],
+                                    # form.cleaned_data['niveau'],
+                                    # form.cleaned_data['phone'],
+                                    form.cleaned_data['password']
+                                )
+                                user.first_name = etudiant.first_name
+                                user.last_name = etudiant.last_name
+                                # TODO: ajouter le user dans le group STUDENT
+                                user.save()
+                                # etudiant.niveau = form.cleaned_data['niveau']
+                                etudiant.telephone = form.cleaned_data['phone']
+                                etudiant.is_active = True
+                                etudiant.user = user
+                                etudiant.save()
+                                
+                                #message de succes
+                        
+                                # TODO: redirect to login page:
+                                return HttpResponseRedirect('home')
 
    # No post data availabe, let's just show the page.
     else:

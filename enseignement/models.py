@@ -73,7 +73,7 @@ class TB_Etudiant(models.Model):
     last_name = models.CharField(max_length = 255)
     email = models.EmailField(max_length=250, unique=True)
     telephone = models.CharField(max_length = 20, null=True, blank=True)
-    actif = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
     Niveau = models.ForeignKey(TB_Niveau, on_delete=models.CASCADE)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     photo= models.ImageField(upload_to='Images/Etudiants/', default="Images/Etudiants/un.jpg", height_field=None, width_field=None, max_length=255, null=True, blank=True)
