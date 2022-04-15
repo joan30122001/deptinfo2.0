@@ -150,6 +150,9 @@
             <li class="nav-item {% ifequal titre 'alumni' %} active {% endifequal %}">
               <a class="nav-link" href="#"> {% trans "Espace ALUMNI" %}</a>
             </li>
+            <li class="nav-item {% ifequal titre 'galerie' %} active {% endifequal %}">
+              <a class="nav-link" href=" {% url 'barbillard:galerie' %} "> {% trans "Galerie" %}</a>
+            </li>
             <li class="nav-item {% ifequal titre 'partenaires' %} active {% endifequal %}">
               <a class="nav-link" href=" {% url 'barbillard:partenaire' %} "> {% trans "Partenaires" %}</a>
             </li>

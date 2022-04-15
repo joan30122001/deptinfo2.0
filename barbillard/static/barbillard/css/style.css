@@ -1221,8 +1221,8 @@ link:focus,
   bottom: 50px;
   right: 10px;
   border: thin solid #6A4E77;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: #6A4E77;
   color: white;
@@ -1231,8 +1231,8 @@ link:focus,
 }
 
 #btns img{
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

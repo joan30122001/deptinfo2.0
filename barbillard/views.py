@@ -30,14 +30,14 @@ def home(request):
     list_poles = TB_Pole.objects.all().order_by('-id')[:4]
     list_courses = TB_Ue.objects.all().order_by('-id')[:3]
     list_events = TB_Event.objects.all().order_by('date')[:3]
-    list_teachers = TB_Enseignant.objects.all().order_by('id')[:6]
+    # list_teachers = TB_Enseignant.objects.all().order_by('-id')[:6]
     list_articles = TB_Article.objects.all().order_by('-created_at')[:3]
 
     context = {
         "liste_poles": list_poles,
         "liste_cours": list_courses,
         "liste_evenements": list_events,
-        "liste_enseignants": list_teachers,
+        # "liste_enseignants": list_teachers,
         "liste_articles": list_articles
     }
     return render(request, 'barbillard/home.html', context)
@@ -172,6 +172,9 @@ def partenaire(request):
     partenaires = TB_Partenaire.objects.all()
     context = {'partenaires':partenaires}
     return render(request, "barbillard/partenaire.html", context)
+
+def galerie(request):
+    return render(request, "barbillard/galerie.html", {})
 
 
 
@@ -431,6 +434,84 @@ def user_register(request):
 
     return render(request, template, {'form': form})
 
+
+
+# def teacher_register(request):
+#         # if this is a POST request we need to process the form data
+#     template = 'barbillard/signup.html' 
+   
+#     if request.method == 'POST':
+#         # create a form instance and populate it with data from the request:
+#         form = RegisterForm(request.POST)
+#         # check whether it's valid:
+#         if form.is_valid():
+#             if User.objects.filter(username=form.cleaned_data['username']).exists():
+#                 return render(request, template, {
+#                     'form': form,
+#                     'error_message': 'Username already exists.'
+#                 })
+
+#             else:
+#                 if User.objects.filter(email=form.cleaned_data['email']).exists():
+#                     return render(request, template, {
+#                         'form': form,
+#                         # messages.error(request, 'Error. Email already exists..')
+#                         'error_message': 'Email already exists.'
+#                     })
+#                 else:
+#                     if form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
+#                         return render(request, template, {
+#                             'form': form,
+#                             'error_message': 'Passwords do not match.'
+#                         })
+#                     else:
+
+#                         try:
+#                             enseignant = TB_Enseignant.objects.get(email=form.cleaned_data['email'], code=form.cleaned_data['code'])
+#                         except TB_Enseignant.DoesNotExist:
+#                             enseignant = None
+
+#                         if not enseignant:
+#                             return render(request, template, {
+#                                 'form': form,
+#                                 'error_message': 'You are not a student, if you are sure you are one please contact the admin at abdelmfossa@gmail.com .'
+#                             })
+#                         else:
+#                             if enseignant.actif == True:
+#                                 return render(request, template, {
+#                                 'form': form,
+#                                 'error_message': 'You already have an account.'
+#                             })
+#                             else:
+#                                 # Create the user:
+#                                 user = User.objects.create_user(
+#                                     form.cleaned_data['username'],
+#                                     form.cleaned_data['email'],
+#                                     # form.cleaned_data['matricule'],
+#                                     # form.cleaned_data['niveau'],
+#                                     # form.cleaned_data['phone'],
+#                                     form.cleaned_data['password']
+#                                 )
+#                                 user.first_name = enseignant.first_name
+#                                 user.last_name = enseignant.last_name
+#                                 # TODO: ajouter le user dans le group STUDENT
+#                                 user.save()
+#                                 # etudiant.niveau = form.cleaned_data['niveau']
+#                                 # etudiant.telephone = form.cleaned_data['phone']
+#                                 enseignant.actif = True
+#                                 enseignant.user = user
+#                                 enseignant.save()
+                                
+#                                 #message de succes
+                        
+#                                 # TODO: redirect to login page:
+#                                 return Redirect('user_login')
+
+#    # No post data availabe, let's just show the page.
+#     else:
+#         form = RegisterForm()
+
+#     return render(request, template, {'form': form})
 
 
 

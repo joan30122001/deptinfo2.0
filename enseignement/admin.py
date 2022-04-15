@@ -31,7 +31,7 @@ class TB_UeAdmin(admin.ModelAdmin):
 
 @admin.register(TB_Enseignant)
 class TB_EnseignantAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email', 'grade', 'jury', 'actif', 'user',)
+    list_display = ('code','first_name', 'last_name', 'email', 'grade', 'jury', 'actif', 'user',)
     ordering = ('first_name',)
     list_filter = ('pole', 'jury', 'actif',)
     search_fields = ('first_name', 'last_name', 'email',)

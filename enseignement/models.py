@@ -109,6 +109,7 @@ class TB_Enseignant(models.Model):
         ('Pr.', 'Professeur')
     )
 
+    code = models.CharField(max_length=7, primary_key=True)
     titre = models.CharField(max_length=255, choices=TITRE_CHOICES, verbose_name="Titre", default='Dr.')
     first_name = models.CharField(max_length=255, verbose_name=_("Prénom"))
     last_name = models.CharField(max_length=255, verbose_name=_("Nom"))

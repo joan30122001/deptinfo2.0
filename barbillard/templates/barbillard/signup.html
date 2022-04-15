@@ -185,7 +185,7 @@
 
                 <div class="form-group">
                     <div class="form-check form-check-inline">
-                        <a href="javascript:visibilite('student');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
+                        <a href="javascript:visibilite('student');"><input class="form-check-input" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
                         <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -272,13 +272,23 @@
                 </form>
 
 
-                <form action = "{% url 'barbillard:user_register' %}" method="POST">
+                <form action = "{% url 'barbillard:teacher_register' %}" method="POST">
                     {% csrf_token %}
                     <div id="teacher" style="display:none;">
                         <div class="form-group">
-                            <label for="telephone"> {% trans "Telephone" %} </label>
-                            {% comment %} <input type="tel" name="telephone" placeholder="votre numéreo de téléphone..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
-                            {{ form.phone }}
+                            <label for="nom d'utilisateur"> {% trans "Nom d'utilisateur" %} </label>
+                            {% comment %} <input type="text" name="username" placeholder="votre nom d'utilisateur..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="code"> {% trans "Code" %} </label>
+                            {% comment %} <input type="text" name="matricule" placeholder="votre matricule..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.matricule }}
+                        </div>
+                        <div class="form-group">
+                            <label for="email"> {% trans "Email" %} </label>
+                            {% comment %} <input type="email" name="email" placeholder="votre adresse email..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.email }}
                         </div>
                         <div class="form-group">
                             <label for="password"> {% trans "Mot de passe" %} </label>

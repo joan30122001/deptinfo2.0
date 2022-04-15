@@ -2,12 +2,19 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm,  PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from enseignement.models import TB_Etudiant
+from enseignement.models import TB_Etudiant, TB_Enseignant
 
 class CreateUserForm(UserCreationForm):
 	class Meta:
 		model = TB_Etudiant
 		fields = ['first_name', 'matricule', 'Niveau', 'telephone', 'email', 'password1', 'password2']
+
+
+# class CreateTeacherForm(UserCreationForm):
+#     class Meta:
+#         model = TB_Enseignant
+#         # fields = ['first_name', 'code', 'email', 'password1', 'password2']
+#         fields = ('__all__')
 
 
 class UserPasswordChangeForm(PasswordChangeForm):
@@ -31,7 +38,16 @@ class RegisterForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     matricule = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
-    niveau = forms.MultipleChoiceField(choices = LEVEL_CHOICES)
+    niveau = forms.ChoiceField(choices = LEVEL_CHOICES)
     phone = forms.CharField(widget = forms.TextInput(attrs = {'class':'form_control'}), required = True)
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
     password_repeat = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+
+
+
+# class TeacherForm(forms.Form):
+#     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+#     code = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+#     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+#     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+#     password_repeat = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
