@@ -274,3 +274,14 @@ class TB_Partenaire(models.Model):
     class Meta:
        verbose_name = _('TB_Partenaire')
        verbose_name_plural = _('TB_Partenaires')
+
+
+class TB_Email(models.Model):
+    email = models.EmailField(unique=True)
+
+    # def __str__(self):
+    #     return self.email
+
+    class Meta: 
+        verbose_name = _('TB_Email')
+        verbose_name_plural = _('TB_Emails')    

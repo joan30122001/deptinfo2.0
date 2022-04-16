@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import TB_Information, TB_Event, TB_Partenaire
+from .models import TB_Information, TB_Event, TB_Partenaire, TB_Email
 from enseignement.models import TB_Pole, TB_Ue, TB_Enseignant
 from blog.models import TB_Article
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
@@ -9,7 +9,7 @@ from django.db.models import Q
 from django.http import Http404
 from django.utils.translation import gettext as _
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import RegisterForm
 
 from django.contrib import messages
@@ -23,6 +23,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from enseignement.models import TB_Etudiant
 from django.contrib import messages
+import re
 
 # Create your views here.
 
@@ -567,3 +568,62 @@ def change_password(request):
     return render(request, 'information/change_password.html', {
         'form': form
     })
+
+
+
+
+
+
+
+
+
+
+
+# from django.core.exceptions import ValidationError
+# from django.core.validators import validate_email
+
+# value = "foo.bar@baz.qux"
+# try:
+#     validate_email(value)
+# except ValidationError as e:
+#     print("bas email, detail:", e)
+# else:
+#     print("good email")
+
+
+
+def mailing_list(request):
+    # if request.method == "POST":   
+    #     try:
+    #         e = TB_Email.objects.get(request.POST['email'])
+    #         message = _(u"Email is already added.")
+    #         type = "error"
+    #     except TB_Email.DoesNotExist:
+    #         if validateEmail(request.POST['email']):
+    #             try:
+    #                 e = TB_Email(email = request.POST['email'])
+    #             except DoesNotExist:
+    #                 pass
+    #             message = _(u"Email added.")
+    #             type = "success"
+    #             e.save()
+    #         else:
+    #             message = _(u"Wrong email")
+    #             type = "error"
+    if request.method == "POST":
+        sub = TB_Email(email=request.POST.get('email')) 
+        sub.save()
+        return render(request, 'barbillard/home.html')
+    else:
+        return render(request, 'barbillard/home.html')
+
+
+def validateEmail(email):
+    if len(email) > 6:
+        if re.match('\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b', email) != None:
+            return 1
+    return 0
+
+
+#     def mailing_list(request):
+#         pass

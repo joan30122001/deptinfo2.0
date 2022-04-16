@@ -31,6 +31,7 @@ from barbillard.views import (
     user_login,
     logoutUser,
     change_password,
+    mailing_list,
     )
 
 app_name = 'barbillard'
@@ -70,6 +71,7 @@ urlpatterns = [
     # path('teacher_creer-compte/', teacher_register, name = "teacher_register"),
     path('logout/', logoutUser, name = "logout"),
     path('change_password/', change_password, name = "change_password"),
+    path('mailing_list/', mailing_list, name = "mailing_list"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
