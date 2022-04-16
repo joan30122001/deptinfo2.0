@@ -272,7 +272,8 @@
                 </form>
 
 
-                <form action = "{% url 'barbillard:teacher_register' %}" method="POST">
+                {% comment %} <form action = "{% url 'barbillard:teacher_register' %}" method="POST"> {% endcomment %}
+                <form action = "" method="POST">
                     {% csrf_token %}
                     <div id="teacher" style="display:none;">
                         <div class="form-group">
@@ -309,7 +310,8 @@
             <div class="col-md-6">
                 <div class="info">
                     <h6 style="font-weight: bold; font-size: larger;"> {% trans "Connexion" %} </h6>
-                    <button class="btn btns btn-classs"> {% trans "Me connecter" %} </button>
+                    {% comment %} <button class="btn btns btn-classs"> {% trans "Se connecter" %} </button> {% endcomment %}
+                    <a href="{% url 'barbillard:user_login' %}" class="btn btns btn-classs"> {% trans "Se connecter" %}</a>
                     <h6 style="margin-top: 15px; margin-bottom: 15px; font-weight: bold;"> {% trans "Dépannage" %}</h6>
                     <ul class="operations">
                         <a href="#"><li> {% trans "J' ai oublié mon mot de passe" %}</li></a>
@@ -325,9 +327,8 @@
                 <p> {% trans "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry." %}</p>
             </div>
             <div class="return">
-                <a href="{% url 'barbillard:user_login' %}"><button class="btn btns btn-classss"><img src="{% static 'accounts/left-arrow.svg' %}" style="width: 15px; height: 15px; margin-right: 15px;">Accueil</button></a>
+                <a href="{% url 'home' %}"><button class="btn btns btn-classss"><img src="{% static 'accounts/left-arrow.svg' %}" style="width: 15px; height: 15px; margin-right: 15px;"> {% trans "Accueil" %}</button></a>            </div>
             </div>
-        </div>
       </div>
 
       <link rel="stylesheet" href="{% static 'accounts/jquery-3.2.1.slim.min.js' %}">
