@@ -611,18 +611,18 @@ def mailing_list(request):
     #             message = _(u"Wrong email")
     #             type = "error"
     if request.method == "POST":
-        sub = TB_Email(email=request.POST.get('email')) 
-        sub.save()
+        emails = TB_Email(mail=request.POST.get('newsletter')) 
+        emails.save()
         return render(request, 'barbillard/home.html')
     else:
         return render(request, 'barbillard/home.html')
 
 
-def validateEmail(email):
-    if len(email) > 6:
-        if re.match('\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b', email) != None:
-            return 1
-    return 0
+# def validateEmail(email):
+#     if len(email) > 6:
+#         if re.match('\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b', email) != None:
+#             return 1
+#     return 0
 
 
 #     def mailing_list(request):

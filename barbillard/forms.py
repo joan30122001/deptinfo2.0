@@ -35,13 +35,13 @@ LEVEL_CHOICES =(
     ("Master Pro", "Master Pro"),
 )   
 class RegisterForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    matricule = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
-    niveau = forms.ChoiceField(choices = LEVEL_CHOICES)
-    phone = forms.CharField(widget = forms.TextInput(attrs = {'class':'form_control'}), required = True)
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
-    password_repeat = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': "Votre nom d'utilisateur..."}))
+    matricule = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': "Votre matricule..."}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder': "Votre adresse email..."}))
+    niveau = forms.ChoiceField(choices = LEVEL_CHOICES, widget=forms.Select(attrs={'class':'form-control', 'placeholder': "Votre niveau..."}))
+    phone = forms.CharField(widget = forms.TextInput(attrs = {'class':'form-control', 'placeholder': "Votre numero de téléphone..."}), required = True)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder': "Votre mot de passe..."}))
+    password_repeat = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder': "Votre mot de passe..."}))
 
 
 
