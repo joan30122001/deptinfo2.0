@@ -70,12 +70,38 @@ de la Faculté des Sciences de l’Université de Yaoundé I.">
 {% endblock stylepage %}
 
 {% block content %}
-<br><br><br><br><br><br><br><br><br><br><br><br>
+{% comment %} <br><br><br><br><br><br><br><br><br><br><br><br> {% endcomment %}
     <!-- A Lightbox is basically a slider (carousel) inside of a modal.
 
   Todos: fix active class (when you click on a photo, carousel in modal reverts to first slide) 
  *solution: added data-slide-to and data-target to imgs
 -->
+
+
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Gallérie" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten"> {% trans "Les images au Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h2 class="section-title"> {% trans "Nos Images" %}</h2>
+			</div>
+        </div>
+    </div>
+</section>
 
 <div class="container">
     <div class="row d-flex flex-wrap align-items-center" data-toggle="modal" data-target="#lightbox">

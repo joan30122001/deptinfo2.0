@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import TB_Information, TB_Event, TB_Partenaire, TB_Email
 from enseignement.models import TB_Pole, TB_Ue, TB_Enseignant
@@ -20,9 +20,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import redirect
 from enseignement.models import TB_Etudiant
-from django.contrib import messages
 import re
 
 # Create your views here.
@@ -427,7 +425,7 @@ def user_register(request):
                                 #message de succes
                         
                                 # TODO: redirect to login page:
-                                return HttpResponseRedirect('home')
+                                return redirect('home')
 
    # No post data availabe, let's just show the page.
     else:

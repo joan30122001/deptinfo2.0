@@ -185,30 +185,21 @@
 
                 <div class="form-group">
                     <div class="form-check form-check-inline">
-                        <a href="javascript:visibilite('student');"><input class="form-check-input" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
+                        <a href="javascript:visibilite('student');"><input class="form-check-input" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"></a>
                         <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></a>
+                        <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"></a>
                         <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
                     </div>
-                </div>
+                </div> 
 
 
 
                 <form action = "{% url 'barbillard:user_register' %}" method="POST">
                     {% csrf_token %}
-                    {% comment %} <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <a href="javascript:visibilite('student');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
-                            <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></a>
-                            <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
-                        </div>
-                    </div> {% endcomment %}
-                    <div id="student" style="display:block;">
+                    
+                    <div id="student" class="user">
                         {% comment %} <div class="form-group">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -259,12 +250,11 @@
                     
                     {% comment %} <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button> {% endcomment %}
                 </form>
+                
 
 
-                {% comment %} <form action = "{% url 'barbillard:teacher_register' %}" method="POST"> {% endcomment %}
                 <form action = "" method="POST">
-                    {% csrf_token %}
-                    <div id="teacher" style="display:none;">
+                    <div id="teacher" class="user" style="display:none;">
                         <div class="form-group">
                             <label for="nom d'utilisateur"> {% trans "Nom d'utilisateur" %} </label>
                             {% comment %} <input type="text" name="username" placeholder="votre nom d'utilisateur..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
@@ -293,6 +283,7 @@
                         <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
                     </div>
                 </form>
+                
 
 
             </div>
@@ -323,9 +314,10 @@
       <link rel="stylesheet" href="{% static 'accounts/jquery-3.2.1.slim.min.js' %}">
       <link rel="stylesheet" href="{% static 'accounts/popper.min.js' %}">
       <link rel="stylesheet" href="{% static 'accounts/bootstrap.min.js' %}">
+
 </body>
 </html>
-<script>
+{% comment %} <script>
     var divPrecedent=document.getElementById('student');
     function visibilite(divId)
     {
@@ -333,4 +325,29 @@
         divPrecedent=document.getElementById(divId);
         divPrecedent.style.display='';
     }
-</script>
+</script> {% endcomment %}
+
+{% comment %} <script>
+    $(document).ready(function() {
+        $("input[name$='inlineRadioOptions']").click(function() {
+            var test = $(this).val();
+    
+            $("div.user").hide();
+            $("#users" + test).show();
+        });
+    });
+</script> {% endcomment %}
+
+
+<script>
+    function Display() {
+        if (document.getElementById("inlineRadio1").checked){
+            document.getElementById("student").style.display = 'block';
+            document.getElementById("teacher").style.display = 'none';
+        }
+        else{
+            document.getElementById("teacher").style.display = 'block';
+            document.getElementById("student").style.display = 'none';
+        }
+    }
+  </script>
