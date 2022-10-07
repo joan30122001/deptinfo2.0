@@ -26,25 +26,25 @@
         </div>
         <div class="col-lg-8 text-center text-lg-right">
           <ul class="list-inline">
-            <li class="list-inline-item"><a class="text-uppercase {% ifequal titre 'infos' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block" href="{% url 'barbillard:info' %}">{{user.groups.all.0}}</a></li>
+            <li class="list-inline-item"><a class="text-uppercase {% if request.resolver_match.url_name == 'info' %}text-secondary{% endif %} p-sm-2 py-2 px-0 d-inline-block" href="{% url 'barbillard:info' %}">{{user.groups.all.0}}</a></li>
             <li class="list-inline-item"><a
-                class="text-uppercase {% ifequal titre 'infos' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                class="text-uppercase {% if request.resolver_match.url_name == 'info' %}text-secondary{% endif %} p-sm-2 py-2 px-0 d-inline-block"
                 href="{% url 'barbillard:info' %}"> {% trans "Barbillard" %}</a></li>
             <li class="list-inline-item"><a
-                class="text-uppercase {% ifequal titre 'events' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                class="text-uppercase {% if request.resolver_match.url_name == 'event' %}text-secondary{% endif %} p-sm-2 py-2 px-0 d-inline-block"
                 href="{% url 'barbillard:event' %}"> {% trans "Nos évènements" %}</a></li>
             {% if user.is_authenticated %}
             <li class="list-inline-item"><a
-                class="text-uppercase {% ifequal titre 'infos0' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                class="text-uppercase {% if request.resolver_match.url_name == 'logout' %}text-secondary{% endif %} p-sm-2 py-2 px-0 d-inline-block"
                 href="{% url 'barbillard:logout' %}"> {% trans "Déconnexion" %}</a></li>
             {% else %}
             <li class="list-inline-item"><a
-                class="text-uppercase {% ifequal titre 'infos0' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                class="text-uppercase {% if request.resolver_match.url_name == 'user_login' %}text-secondary{% endif %} p-sm-2 py-2 px-0 d-inline-block"
                 href="{% url 'barbillard:user_login' %}"> {% trans "Connexion" %}</a></li>
             {% endif %}
             {% if not user.is_authenticated %}
             <li class="list-inline-item"><a
-                class="text-uppercase {% ifequal titre 'infos1' %} text-secondary {% endifequal %} p-sm-2 py-2 px-0 d-inline-block"
+                class="text-uppercase {% if request.resolver_match.url_name == 'user_register' %}text-secondary{% endif %} p-sm-2 py-2 px-0 d-inline-block"
                 href="{% url 'barbillard:user_register' %}"> {% trans "Créer un compte" %}</a></li>
             {% endif %}
             <li class="list-inline-item">
@@ -109,15 +109,15 @@
 
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center" style="font-size: small;">
-            <li class="nav-item {% ifequal titre 'home' %} active {% endifequal %}">
+            <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
               <a class="nav-link" href="{% url 'home' %}">{% trans "Accueil" %}</a>
             </li>
             <li class="nav-item dropdown view 
-              {% ifequal titre 'presentation' %} active {% endifequal %}
-              {% ifequal titre 'domaines' %} active {% endifequal %}
-              {% ifequal titre 'programme' %} active {% endifequal %}
-              {% ifequal titre 'courses' %} active {% endifequal %}
-              {% ifequal titre 'coordonnees' %} active {% endifequal %}
+              {% if request.resolver_match.url_name == 'presentation' %}active{% endif %}
+              {% if request.resolver_match.url_name == 'domaines' %}active{% endif %}
+              {% if request.resolver_match.url_name == 'programme' %}active{% endif %}
+              {% if request.resolver_match.url_name == 'courses' %}active{% endif %}
+              {% if request.resolver_match.url_name == 'coordonnees' %}active{% endif %}
             ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -131,12 +131,12 @@
                 <a class="dropdown-item" href="{% url 'barbillard:coordonnees' %}"> {% trans "Coordonnées" %}</a>
               </div>
             </li>
-            <li class="nav-item {% ifequal titre 'enseignant' %} active {% endifequal %}">
+            <li class="nav-item {% if request.resolver_match.url_name == 'enseignant' %}active{% endif %}">
               <a class="nav-link" href="{% url 'enseignement:enseignant' %}">{% trans "Nos Enseignants" %}</a>
             </li>
             <li class="nav-item dropdown view
-              {% ifequal titre 'barbillard:comsas' %} active {% endifequal %}
-              {% ifequal titre 'gdsc' %} active {% endifequal %}
+              {% if request.resolver_match.url_name == 'comsas' %}active{% endif %}
+              {% if request.resolver_match.url_name == 'gdsc' %}active{% endif %}
             ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -147,16 +147,16 @@
                 <a class="dropdown-item" href="{% url 'barbillard:gdsc' %}"> {%trans "GDSC" %}</a>
               </div>
             </li>
-            <li class="nav-item {% ifequal titre 'alumni' %} active {% endifequal %}">
+            <li class="nav-item {% if request.resolver_match.url_name == 'alumni' %}active{% endif %}">
               <a class="nav-link" href="#"> {% trans "Espace ALUMNI" %}</a>
             </li>
-            <li class="nav-item {% ifequal titre 'partenaires' %} active {% endifequal %}">
+            <li class="nav-item {% if request.resolver_match.url_name == 'partenaire' %}active{% endif %}">
               <a class="nav-link" href=" {% url 'barbillard:partenaire' %} "> {% trans "Partenaires" %}</a>
             </li>
-            <li class="nav-item {% ifequal titre 'article' %} active {% endifequal %}">
+            <li class="nav-item {% if request.resolver_match.url_name == 'article' %}active{% endif %}">
               <a class="nav-link" href="{% url 'blog:article' %}"> {% trans "BLOG" %}</a>
             </li>
-            <li class="nav-item {% ifequal titre 'contact' %} active {% endifequal %}">
+            <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
               <a class="nav-link" href="{% url 'barbillard:contact' %}"> {% trans "CONTACT" %}</a>
             </li>
           </ul>
