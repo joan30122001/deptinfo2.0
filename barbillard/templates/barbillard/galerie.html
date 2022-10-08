@@ -1,0 +1,192 @@
+{% extends 'barbillard/_partials/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>Galerie | Département d'Informatique</title>
+{% endblock title %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<!-- mobile responsive meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Programme d’enseignements au Département d’Informatique
+de la Faculté des Sciences de l’Université de Yaoundé I.">
+<meta name="keywords" content="Département, Informatique, Université, Yaoundé, Doctorat, Master, Licence, enseignements">
+<meta name="author" content="Abdel Aziz MFOSSA">
+{% endblock meta %}
+
+{% block graph %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programme | Département d'Informatique">
+<meta property="og:description" content="Programme d’enseignements au Département d’Informatique">
+<meta property="og:site_name" content="Département d'Informatique">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'barbillard/images/dept-info.jpg' %}">
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="450" />
+<meta property="og:image:alt" content="Batiment du Department d'Informatique" />
+{% endblock graph %}
+
+{% block nav %}
+	{% with titre="programme"%}
+		{% include 'barbillard/_partials/navbar.html' %}
+	{% endwith %}
+{% endblock nav %}
+
+{% block stylepage %}
+	{% comment %} <style>
+		.formation-box{
+			cursor: pointer;
+		}
+		.formation-box:hover{
+			background-size: cover;
+			background-image: linear-gradient(to bottom, rgba(222,58,153,0.7), rgba(106,78,119,0.7)), url("{% static 'barbillard/images/cycle/licence.jpg' %}");
+		}
+		.formation-box:hover h4, .formation-box:hover p, .formation-box:hover .feature-icon{
+			color: white;
+		}
+	</style> {% endcomment %}
+    <style>
+        .close {
+            font-size: 1.5rem;
+        }
+        
+        .col-12 img {
+            opacity: 0.7;
+            cursor: pointer;
+            margin: 2rem;
+            width: 100%;
+        }
+        
+        .col-12 img:hover {
+            opacity: 1;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+
+{% endblock stylepage %}
+
+{% block content %}
+{% comment %} <br><br><br><br><br><br><br><br><br><br><br><br> {% endcomment %}
+    <!-- A Lightbox is basically a slider (carousel) inside of a modal.
+
+  Todos: fix active class (when you click on a photo, carousel in modal reverts to first slide) 
+ *solution: added data-slide-to and data-target to imgs
+-->
+
+
+<section class="page-title-section overlay"
+    data-background="{% static 'barbillard/images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-white font-secondary" href="#"> {% trans "Gallérie" %}</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+                <p class="text-lighten"> {% trans "Les images au Département d’Informatique de la Faculté des Sciences de l’Université de Yaoundé I." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-12 order-2 order-md-1">
+				<h2 class="section-title"> {% trans "Nos Images" %}</h2>
+			</div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row d-flex flex-wrap align-items-center" data-toggle="modal" data-target="#lightbox">
+      <div class="col-12 col-md-6 col-lg-3">     
+        <img src="{% static 'barbillard/images/img9.webp' %}" data-target="#indicators" data-slide-to="0" alt="" /> 
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+           <img src="{% static 'barbillard/images/img2.webp' %}" data-target="#indicators" data-slide-to="1" alt="" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+         <img src="{% static 'barbillard/images/img3.webp' %}" data-target="#indicators" data-slide-to="2"  alt="" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+           <img src="{% static 'barbillard/images/img4.webp' %}" data-target="#indicators" data-slide-to="3" alt="" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+           <img src="{% static 'barbillard/images/img5.webp' %}" data-target="#indicators" data-slide-to="3"  alt="" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+           <img src="{% static 'barbillard/images/img6.webp' %}" data-target="#indicators" data-slide-to="4" alt="" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <img src="{% static 'barbillard/images/img7.webp' %}" data-target="#indicators" data-slide-to="4" alt="" />
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <img src="{% static 'barbillard/images/img8.webp' %}" data-target="#indicators" data-slide-to="4" alt="" />
+    </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="lightbox" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close text-right p-2" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          <div id="indicators" class="carousel slide" data-interval="false">
+      <ol class="carousel-indicators">
+        <li data-target="#indicators" data-slide-to="0" class="active"></li>
+        <li data-target="#indicators" data-slide-to="1"></li>
+        <li data-target="#indicators" data-slide-to="2"></li>
+        <li data-target="#indicators" data-slide-to="3"></li>
+        <li data-target="#indicators" data-slide-to="4"></li>
+        <li data-target="#indicators" data-slide-to="5"></li>
+      </ol>
+      <div class="carousel-inner">
+        
+        <div class="carousel-item active">
+          
+          <img class="d-block w-100" src="{% static 'barbillard/images/img9.webp' %}" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static 'barbillard/images/img2.webp' %}" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static 'barbillard/images/img3.webp' %}" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static 'barbillard/images/img4.webp' %}" alt="Fourth slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static 'barbillard/images/img5.webp' %}" alt="Fifth slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static 'barbillard/images/img6.webp' %}" alt="Sixth slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'barbillard/images/img7.webp' %}" alt="Sixth slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'barbillard/images/img8.webp' %}" alt="Sixth slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#indicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#indicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    
+        </div>
+      </div>
+    </div>
+                             </div>
+{% endblock content %}

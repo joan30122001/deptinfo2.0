@@ -1,0 +1,72 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="icon" href="{% static 'preinscription/images/univ1.png' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'preinscription/bootstrap/css/bootstrap4.3.1.min.css' %}">
+    <meta charset="UTF-8">
+    <title>{% trans "Site en Maintenance | Préinscriptions - Université de Yaoundé 1" %}</title>
+
+    <style>
+        body {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font: 50px Helvetica, sans-serif !important;
+        }
+
+        body {
+            font: 20px Helvetica, sans-serif !important;
+            color: #333;
+        }
+
+        /* article {
+            display: block;
+            text-align: left;
+            width: 750px;
+            margin: 0 auto;
+        } */
+
+        a {
+            color: #dc8100;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <img class="img-fluid mx-auto d-block" src="{% static 'preinscription/images/univ1.png' %}" width="100px">
+        </div>
+        <div class="row text-center pt-4">
+            <article>
+                <h1>Nous reviendrons bientôt !</h1>
+                <div class="container">
+                    <p>
+                        Désolé pour le désagrément, mais nous effectuons des travaux de maintenance en ce moment. Si
+                        vous en avez besoin, vous pouvez toujours
+                        <a href="mailto:preinscriptions@univ-yaounde1.cm">nous contacter</a>, sinon nous serons de nouveau en ligne
+                        sous peu !
+                    </p>
+                    <p style="text-align: right;">&mdash; L'équipe</p>
+                </div>
+            </article>
+        </div>
+        <div class="row text-center">
+            <img class="img-fluid mx-auto d-block" src="{% static 'preinscription/images/website-maintenance.png' %}">
+        </div>
+    </div>
+</body>
+
+</html>

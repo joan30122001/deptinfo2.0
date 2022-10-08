@@ -11,21 +11,23 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from pathlib import Path
+from decouple import config, Csv
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')+g)=f8e7e(osei*caka0__5ea-f(n)9=df)@@es!jv(2wik$h'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -44,7 +46,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'crispy_forms',
     'vinaigrette',
+    'rosetta'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +59,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware', # Traduction
+    'maintenance_mode.middleware.MaintenanceModeMiddleware', # Django maintenance mode
 ]
+
+MAINTENANCE_MODE = None # Django maintenance mode
+MAINTENANCE_MODE_TEMPLATE = "503.html" # Django maintenance mode
+MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True # Django maintenance mode
 
 ROOT_URLCONF = 'deptinfo.urls'
 
@@ -89,14 +100,17 @@ DATABASES = {
 
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'deptinfo',
-#         'USER': 'deptinfo',
-#         'PASSWORD': '#deptinfoManager@2021!',
-#         'HOST': '41.204.87.57',
-#         'PORT': '3306'
-#     }
+#    'default': {
+#       'ENGINE': 'django.db.backends.mysql',
+#       'NAME': config('DB_NAME'),
+#       'USER': config('DB_USER'),
+#       'PASSWORD': config('DB_PASSWORD'),
+#       'HOST': config('DB_HOST'),
+#       'PORT': config('DB_PORT'),
+#       'OPTIONS': {
+#             'charset': 'utf8mb4'  # This is the important line
+#         }
+#    }
 # }
 
 
@@ -122,7 +136,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = (
+    ('fr', _('Français')),
+    ('en', _('Anglais')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 
@@ -137,4 +162,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = 'media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

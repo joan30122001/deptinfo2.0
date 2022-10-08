@@ -71,7 +71,6 @@
               </div> {% endcomment %}
 
 
-
               
               {% comment %}<form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
@@ -149,6 +148,9 @@
             </li>
             <li class="nav-item {% if request.resolver_match.url_name == 'alumni' %}active{% endif %}">
               <a class="nav-link" href="#"> {% trans "Espace ALUMNI" %}</a>
+            </li>
+            <li class="nav-item {% if request.resolver_match.url_name == 'galerie' %}active{% endif %}">
+              <a class="nav-link" href=" {% url 'barbillard:galerie' %} "> {% trans "Galerie" %}</a>
             </li>
             <li class="nav-item {% if request.resolver_match.url_name == 'partenaire' %}active{% endif %}">
               <a class="nav-link" href=" {% url 'barbillard:partenaire' %} "> {% trans "Partenaires" %}</a>

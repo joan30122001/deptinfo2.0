@@ -181,19 +181,25 @@
 
                 {% include 'barbillard/_partials/messages.html' %}
 
+
+
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <a href="javascript:visibilite('student');"><input class="form-check-input" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"></a>
+                        <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"></a>
+                        <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
+                    </div>
+                </div> 
+
+
+
                 <form action = "{% url 'barbillard:user_register' %}" method="POST">
                     {% csrf_token %}
-                    <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <a href="javascript:visibilite('student');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></a>
-                            <label class="form-check-label" for="inlineRadio1"> {% trans "Etudiant" %}</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <a href="javascript:visibilite('teacher');"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></a>
-                            <label class="form-check-label" for="inlineRadio2"> {% trans "Enseignant" %}</label>
-                        </div>
-                    </div>
-                    <div id="student" style="display:block;">
+                    
+                    <div id="student" class="user">
                         {% comment %} <div class="form-group">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -222,17 +228,6 @@
                         <div class="form-group">
                             <label for="niveau"> {% trans "Niveau" %} </label>
                             <!-- <input type="text" name="matricule" placeholder="votre matricule..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> -->
-                            {% comment %} <select class="form-control" aria-label="Default select example" style="width: 300px; height: 45px; border-radius: 3px;">
-                                <option selected>Informatique 1</option>
-                                <option value="1">Informatique 2</option>
-                                <option value="2">Informatique 3</option>
-                                <option value="3">Master 1</option>
-                                <option value="4">Master 2</option>
-                                <option value="5">ICT L1</option>
-                                <option value="6">ICT L2</option>
-                                <option value="7">ICT L3</option>
-                                <option value="8">Master Pro</option>
-                            </select> {% endcomment %}
                             {{ form.niveau }}
                         </div>
                         <div class="form-group">
@@ -252,11 +247,28 @@
                         </div>
                         <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
                     </div>
-                    <div id="teacher" style="display:none;">
+                    
+                    {% comment %} <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button> {% endcomment %}
+                </form>
+                
+
+
+                <form action = "" method="POST">
+                    <div id="teacher" class="user" style="display:none;">
                         <div class="form-group">
-                            <label for="telephone"> {% trans "Telephone" %} </label>
-                            {% comment %} <input type="tel" name="telephone" placeholder="votre numéreo de téléphone..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
-                            {{ form.phone }}
+                            <label for="nom d'utilisateur"> {% trans "Nom d'utilisateur" %} </label>
+                            {% comment %} <input type="text" name="username" placeholder="votre nom d'utilisateur..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="code"> {% trans "Code" %} </label>
+                            {% comment %} <input type="text" name="matricule" placeholder="votre matricule..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.matricule }}
+                        </div>
+                        <div class="form-group">
+                            <label for="email"> {% trans "Email" %} </label>
+                            {% comment %} <input type="email" name="email" placeholder="votre adresse email..." class="form-control" style="width: 300px; height: 35px; border-radius: 3px;"> {% endcomment %}
+                            {{ form.email }}
                         </div>
                         <div class="form-group">
                             <label for="password"> {% trans "Mot de passe" %} </label>
@@ -270,13 +282,16 @@
                         </div>
                         <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button>
                     </div>
-                    {% comment %} <button class="btn btn-class" style="width: 150px; margin-left: 35px;"> {% trans "S'enregistrer" %} </button> {% endcomment %}
                 </form>
+                
+
+
             </div>
             <div class="col-md-6">
                 <div class="info">
                     <h6 style="font-weight: bold; font-size: larger;"> {% trans "Connexion" %} </h6>
-                    <button class="btn btns btn-classs"> {% trans "Me connecter" %} </button>
+                    {% comment %} <button class="btn btns btn-classs"> {% trans "Se connecter" %} </button> {% endcomment %}
+                    <a href="{% url 'barbillard:user_login' %}" class="btn btns btn-classs"> {% trans "Se connecter" %}</a>
                     <h6 style="margin-top: 15px; margin-bottom: 15px; font-weight: bold;"> {% trans "Dépannage" %}</h6>
                     <ul class="operations">
                         <a href="#"><li> {% trans "J' ai oublié mon mot de passe" %}</li></a>
@@ -292,17 +307,17 @@
                 <p> {% trans "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry." %}</p>
             </div>
             <div class="return">
-                <a href="{% url 'barbillard:user_login' %}"><button class="btn btns btn-classss"><img src="{% static 'accounts/left-arrow.svg' %}" style="width: 15px; height: 15px; margin-right: 15px;">Accueil</button></a>
+                <a href="{% url 'home' %}"><button class="btn btns btn-classss"><img src="{% static 'accounts/left-arrow.svg' %}" style="width: 15px; height: 15px; margin-right: 15px;"> {% trans "Accueil" %}</button></a>            </div>
             </div>
-        </div>
       </div>
 
       <link rel="stylesheet" href="{% static 'accounts/jquery-3.2.1.slim.min.js' %}">
       <link rel="stylesheet" href="{% static 'accounts/popper.min.js' %}">
       <link rel="stylesheet" href="{% static 'accounts/bootstrap.min.js' %}">
+
 </body>
 </html>
-<script>
+{% comment %} <script>
     var divPrecedent=document.getElementById('student');
     function visibilite(divId)
     {
@@ -310,4 +325,29 @@
         divPrecedent=document.getElementById(divId);
         divPrecedent.style.display='';
     }
-</script>
+</script> {% endcomment %}
+
+{% comment %} <script>
+    $(document).ready(function() {
+        $("input[name$='inlineRadioOptions']").click(function() {
+            var test = $(this).val();
+    
+            $("div.user").hide();
+            $("#users" + test).show();
+        });
+    });
+</script> {% endcomment %}
+
+
+<script>
+    function Display() {
+        if (document.getElementById("inlineRadio1").checked){
+            document.getElementById("student").style.display = 'block';
+            document.getElementById("teacher").style.display = 'none';
+        }
+        else{
+            document.getElementById("teacher").style.display = 'block';
+            document.getElementById("student").style.display = 'none';
+        }
+    }
+  </script>

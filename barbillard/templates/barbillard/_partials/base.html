@@ -81,7 +81,7 @@
 			<!-- footer -->
 			<footer>
 				<button id="btns">
-					<i class=""> <img src="/Images/arrow/top-arrow.png"> </i>
+					<i class=""> <img src="{% static 'accounts/top-arrow.png' %}"> </i>
 				</button>
 			  <!-- newsletter -->
 			  <div class="newsletter">
@@ -89,7 +89,8 @@
 			      <div class="row">
 			        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
 			          <h3 class="text-white"> {% trans "Souscrire à la liste de diffusion" %}</h3>
-			          <form action="#">
+			          <form action="{% url 'barbillard:mailing_list' %}" method="POST">
+						{% csrf_token %}
 			            <div class="input-wrapper">
 			              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder='{% trans "Entrez votre adresse E-mail..." %}'>
 			              <button type="submit" value="send" class="btn btn-primary">{% trans "Rejoindre" %}</button>
@@ -147,7 +148,7 @@
 			        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
 			          <h4 class="text-white mb-5"> {% trans "AUTRES" %}</h4>
 			          <ul class="list-unstyled">
-			            <li class="mb-3"><a class="text-color" href="#"> {% trans "UY1" %}</a></li>
+			            <li class="mb-3"><a class="text-color" href="https://uy1.uninet.cm/"> {% trans "UY1" %}</a></li>
 			            <li class="mb-3"><a class="text-color" href="#"> {% trans "FS" %}</a></li>
 			            <li class="mb-3"><a class="text-color" href="#"> {% trans "CRFD" %}</a></li>
 			            <li class="mb-3"><a class="text-color" href="#"> {% trans "URFD" %}</a></li>

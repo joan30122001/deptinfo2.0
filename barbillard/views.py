@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .models import TB_Information, TB_Event, TB_Partenaire
+from .models import TB_Information, TB_Event, TB_Partenaire, TB_Email
 from enseignement.models import TB_Pole, TB_Ue, TB_Enseignant
 from blog.models import TB_Article
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
@@ -9,7 +9,7 @@ from django.db.models import Q
 from django.http import Http404
 from django.utils.translation import gettext as _
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import RegisterForm
 
 from django.contrib import messages
@@ -20,9 +20,8 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import redirect
 from enseignement.models import TB_Etudiant
-from django.contrib import messages
+import re
 
 # Create your views here.
 
@@ -30,14 +29,14 @@ def home(request):
     list_poles = TB_Pole.objects.all().order_by('-id')[:4]
     list_courses = TB_Ue.objects.all().order_by('-id')[:3]
     list_events = TB_Event.objects.all().order_by('date')[:3]
-    list_teachers = TB_Enseignant.objects.all().order_by('id')[:6]
+    # list_teachers = TB_Enseignant.objects.all().order_by('-id')[:6]
     list_articles = TB_Article.objects.all().order_by('-created_at')[:3]
 
     context = {
         "liste_poles": list_poles,
         "liste_cours": list_courses,
         "liste_evenements": list_events,
-        "liste_enseignants": list_teachers,
+        # "liste_enseignants": list_teachers,
         "liste_articles": list_articles
     }
     return render(request, 'barbillard/home.html', context)
@@ -72,8 +71,8 @@ def info(request):
 def detail_info(request, slug_text):
     try:
         info = TB_Information.objects.get(Q(slug = slug_text, published = True))
-    except TB_Information.DoesNotExist:
-        raise Http404(_('Cet information n\' existe pas!!'))
+    except TB_Information.DoesNotExist as e:
+        raise Http404(_('Cet information n\' existe pas!!')) from e
     # category = info.category
     # info_en_relation = Information.objects.filter(category = category)
     return render(request, "barbillard/detail_info.html", {"info": info})
@@ -172,6 +171,9 @@ def partenaire(request):
     partenaires = TB_Partenaire.objects.all()
     context = {'partenaires':partenaires}
     return render(request, "barbillard/partenaire.html", context)
+
+def galerie(request):
+    return render(request, "barbillard/galerie.html", {})
 
 
 
@@ -356,7 +358,7 @@ def event_pdf(request):
 
 def user_register(request):
     # if this is a POST request we need to process the form data
-    template = 'barbillard/signup.html'
+    template = 'barbillard/signup.html' 
    
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -369,45 +371,61 @@ def user_register(request):
                     'error_message': 'Username already exists.'
                 })
 
-            elif User.objects.filter(email=form.cleaned_data['email']).exists():
-                return render(request, template, {
-                    'form': form,
-                    # messages.error(request, 'Error. Email already exists..')
-                    'error_message': 'Email already exists.'
-                })
-
-            elif form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
-                return render(request, template, {
-                    'form': form,
-                    'error_message': 'Passwords do not match.'
-                })
-
-            # elif TB_Etudiant.objects.filter(email=form.clean_data['email'], matricule=form.clean_data['matricule'], is_active=False) is not None:
-            #     return render(request, template, {
-            #         'form': form,
-            #         'error_message': 'You are not a student, if you are sure you are one please contact the admin at abdelmfossa@gmail.com .'
-            #     })
-                
             else:
-                # Create the user:
-                user = User.objects.create_user(
-                    form.cleaned_data['username'],
-                    form.cleaned_data['email'],
-                    # form.cleaned_data['matricule'],
-                    # form.cleaned_data['niveau'],
-                    # form.cleaned_data['phone'],
-                    form.cleaned_data['password']
-                )
-                user.matricule = form.cleaned_data['matricule']
-                user.niveau = form.cleaned_data['niveau']
-                user.phone = form.cleaned_data['phone']
-                user.save()
-               
-                # Login the user
-                login(request, user)
-               
-                # redirect to accounts page:
-                return HttpResponseRedirect('barbillard/home')
+                if User.objects.filter(email=form.cleaned_data['email']).exists():
+                    return render(request, template, {
+                        'form': form,
+                        # messages.error(request, 'Error. Email already exists..')
+                        'error_message': 'Email already exists.'
+                    })
+                else:
+                    if form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
+                        return render(request, template, {
+                            'form': form,
+                            'error_message': 'Passwords do not match.'
+                        })
+                    else:
+
+                        try:
+                            etudiant = TB_Etudiant.objects.get(email=form.cleaned_data['email'], matricule=form.cleaned_data['matricule'])
+                        except TB_Etudiant.DoesNotExist:
+                            etudiant = None
+
+                        if not etudiant:
+                            return render(request, template, {
+                                'form': form,
+                                'error_message': 'You are not a student, if you are sure you are one please contact the admin at abdelmfossa@gmail.com .'
+                            })
+                        else:
+                            if etudiant.is_active == True:
+                                return render(request, template, {
+                                'form': form,
+                                'error_message': 'You already have an account.'
+                            })
+                            else:
+                                # Create the user:
+                                user = User.objects.create_user(
+                                    form.cleaned_data['username'],
+                                    form.cleaned_data['email'],
+                                    # form.cleaned_data['matricule'],
+                                    # form.cleaned_data['niveau'],
+                                    # form.cleaned_data['phone'],
+                                    form.cleaned_data['password']
+                                )
+                                user.first_name = etudiant.first_name
+                                user.last_name = etudiant.last_name
+                                # TODO: ajouter le user dans le group STUDENT
+                                user.save()
+                                # etudiant.niveau = form.cleaned_data['niveau']
+                                etudiant.telephone = form.cleaned_data['phone']
+                                etudiant.is_active = True
+                                etudiant.user = user
+                                etudiant.save()
+                                
+                                #message de succes
+                        
+                                # TODO: redirect to login page:
+                                return redirect('home')
 
    # No post data availabe, let's just show the page.
     else:
@@ -415,6 +433,84 @@ def user_register(request):
 
     return render(request, template, {'form': form})
 
+
+
+# def teacher_register(request):
+#         # if this is a POST request we need to process the form data
+#     template = 'barbillard/signup.html' 
+   
+#     if request.method == 'POST':
+#         # create a form instance and populate it with data from the request:
+#         form = RegisterForm(request.POST)
+#         # check whether it's valid:
+#         if form.is_valid():
+#             if User.objects.filter(username=form.cleaned_data['username']).exists():
+#                 return render(request, template, {
+#                     'form': form,
+#                     'error_message': 'Username already exists.'
+#                 })
+
+#             else:
+#                 if User.objects.filter(email=form.cleaned_data['email']).exists():
+#                     return render(request, template, {
+#                         'form': form,
+#                         # messages.error(request, 'Error. Email already exists..')
+#                         'error_message': 'Email already exists.'
+#                     })
+#                 else:
+#                     if form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
+#                         return render(request, template, {
+#                             'form': form,
+#                             'error_message': 'Passwords do not match.'
+#                         })
+#                     else:
+
+#                         try:
+#                             enseignant = TB_Enseignant.objects.get(email=form.cleaned_data['email'], code=form.cleaned_data['code'])
+#                         except TB_Enseignant.DoesNotExist:
+#                             enseignant = None
+
+#                         if not enseignant:
+#                             return render(request, template, {
+#                                 'form': form,
+#                                 'error_message': 'You are not a student, if you are sure you are one please contact the admin at abdelmfossa@gmail.com .'
+#                             })
+#                         else:
+#                             if enseignant.actif == True:
+#                                 return render(request, template, {
+#                                 'form': form,
+#                                 'error_message': 'You already have an account.'
+#                             })
+#                             else:
+#                                 # Create the user:
+#                                 user = User.objects.create_user(
+#                                     form.cleaned_data['username'],
+#                                     form.cleaned_data['email'],
+#                                     # form.cleaned_data['matricule'],
+#                                     # form.cleaned_data['niveau'],
+#                                     # form.cleaned_data['phone'],
+#                                     form.cleaned_data['password']
+#                                 )
+#                                 user.first_name = enseignant.first_name
+#                                 user.last_name = enseignant.last_name
+#                                 # TODO: ajouter le user dans le group STUDENT
+#                                 user.save()
+#                                 # etudiant.niveau = form.cleaned_data['niveau']
+#                                 # etudiant.telephone = form.cleaned_data['phone']
+#                                 enseignant.actif = True
+#                                 enseignant.user = user
+#                                 enseignant.save()
+                                
+#                                 #message de succes
+                        
+#                                 # TODO: redirect to login page:
+#                                 return Redirect('user_login')
+
+#    # No post data availabe, let's just show the page.
+#     else:
+#         form = RegisterForm()
+
+#     return render(request, template, {'form': form})
 
 
 
@@ -470,3 +566,62 @@ def change_password(request):
     return render(request, 'information/change_password.html', {
         'form': form
     })
+
+
+
+
+
+
+
+
+
+
+
+# from django.core.exceptions import ValidationError
+# from django.core.validators import validate_email
+
+# value = "foo.bar@baz.qux"
+# try:
+#     validate_email(value)
+# except ValidationError as e:
+#     print("bas email, detail:", e)
+# else:
+#     print("good email")
+
+
+
+def mailing_list(request):
+    # if request.method == "POST":   
+    #     try:
+    #         e = TB_Email.objects.get(request.POST['email'])
+    #         message = _(u"Email is already added.")
+    #         type = "error"
+    #     except TB_Email.DoesNotExist:
+    #         if validateEmail(request.POST['email']):
+    #             try:
+    #                 e = TB_Email(email = request.POST['email'])
+    #             except DoesNotExist:
+    #                 pass
+    #             message = _(u"Email added.")
+    #             type = "success"
+    #             e.save()
+    #         else:
+    #             message = _(u"Wrong email")
+    #             type = "error"
+    if request.method == "POST":
+        emails = TB_Email(mail=request.POST.get('newsletter')) 
+        emails.save()
+        return render(request, 'barbillard/home.html')
+    else:
+        return render(request, 'barbillard/home.html')
+
+
+# def validateEmail(email):
+#     if len(email) > 6:
+#         if re.match('\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b', email) != None:
+#             return 1
+#     return 0
+
+
+#     def mailing_list(request):
+#         pass
